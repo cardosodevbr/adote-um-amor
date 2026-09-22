@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Login / Cadastro</title>
+    <link rel="stylesheet" href="Auth.css" />
+  </head>
+  <body>
+    <div class="panel">
+      <div class="card">
+        <div class="logo">Logo</div>
+        <div class="img-placeholder">IMG</div>
+
+        <!-- ===================== TELA DE LOGIN ===================== -->
+        <div id="screen-login" class="screen active">
+          <h1>Bem-vindo de volta!</h1>
+          <p class="subtitle">Faça login para continuar</p>
+
+          <form id="form-login">
+            <label for="login-email">E-mail</label>
+            <input id="login-email" type="email" required placeholder="" />
+
+            <label for="login-senha">Senha</label>
+            <input
+              id="login-senha"
+              type="password"
+              required
+              minlength="6"
+              placeholder="Mínimo de 6 caracteres"
+            />
+
+            <button class="btn-primary" type="submit" id="btn-login">
+              Login
+            </button>
+          </form>
+
+          <div class="divider"><span>OU</span></div>
+          <div class="social-label">Entrar com sua conta</div>
+          <button class="btn-social" type="button" id="btn-google-login">
+            Google
+          </button>
+
+          <div id="message-login" class="message"></div>
+
+          <p class="footer-link" style="margin-top: auto; padding-top: 20px">
+            Ainda não tem conta?
+            <button
+              type="button"
+              class="link-to-cadastro"
+              style="
+                text-decoration: underline;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: inherit;
+                padding: 0;
+                font: inherit;
+              "
+            >
+              Cadastre-se
+            </button>
+          </p>
+        </div>
+
+        <!-- ===================== TELA DE CADASTRO ===================== -->
+        <div id="screen-cadastro" class="screen">
+          <h1>Seja Bem-Vindo</h1>
+          <p class="subtitle">Faça cadastro para continuar</p>
+
+          <form id="form-cadastro">
+            <label for="cad-nome">Nome de usuário</label>
+            <input id="cad-nome" type="text" required placeholder="" />
+
+            <label for="cad-email">E-mail</label>
+            <input id="cad-email" type="email" required placeholder="" />
+
+            <label for="cad-senha">Senha</label>
+            <input
+              id="cad-senha"
+              type="password"
+              required
+              minlength="6"
+              placeholder="Mínimo de 6 caracteres"
+            />
+
+            <label for="cad-senha-confirma">Confirmar Senha</label>
+            <input
+              id="cad-senha-confirma"
+              type="password"
+              required
+              minlength="6"
+              placeholder=""
+            />
+
+            <button class="btn-primary" type="submit" id="btn-cadastro">
+              Cadastrar
+            </button>
+          </form>
+
+          <div id="message-cadastro" class="message"></div>
+
+          <p class="terms" style="margin-top: auto; padding-top: 20px">
+            Ao preencher o formulário acima você concorda com os nossos
+            <a href="#">Termos de uso</a> e nossa
+            <a href="#">Política de Privacidade</a>
+          </p>
+          <p class="footer-link" style="margin-top: 14px">
+            Já tem uma conta?
+            <button
+              type="button"
+              class="link-to-login"
+              style="
+                text-decoration: underline;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: inherit;
+                padding: 0;
+                font: inherit;
+              "
+            >
+              Fazer login
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="Auth.js"></script>
+  </body>
+</html>
