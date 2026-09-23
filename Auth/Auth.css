@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  align-self: flex-start;
+  background: #6b6b6b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px 24px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.img-placeholder {
+  background: #d9d9d9;
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  margin: 0 0 6px;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  text-align: center;
+  color: #6b6b6b;
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: #1a1a1a;
+  margin: 16px 0 6px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  background: #f2f2f2;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.btn-primary {
+  width: 100%;
+  background: #4a3a34;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 22px;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.divider {
+  text-align: center;
+  color: #6b6b6b;
+  font-size: 13px;
+  margin: 22px 0 16px;
+}
+
+.social-label {
+  text-align: center;
+  font-size: 13px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.btn-social {
+  width: 100%;
+  background: #e2e2e2;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.terms {
+  text-align: center;
+  font-size: 11px;
+  color: #6b6b6b;
+  margin-top: 14px;
+  line-height: 1.4;
+}
+
+.footer-link {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 15px;
+}
+
+.footer-link a {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+.message {
+  text-align: center;
+  font-size: 13px;
+  min-height: 18px;
+  margin-top: 14px;
+}
+
+.message.error {
+  color: #c0392b;
+}
+.message.success {
+  color: #2e7d32;
+}
+
+.screen {
+  display: none;
+  flex-direction: column;
+}
+.screen.active {
+  display: flex;
+}
