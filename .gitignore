@@ -1,6 +1,3 @@
-# Configuração local com chaves do Supabase
-Auth/config.js
-
 # Arquivos de sistema
 .DS_Store
 Thumbs.db

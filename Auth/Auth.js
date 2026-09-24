@@ -14,22 +14,34 @@ function mostrarCadastro() {
 document
   .querySelector(".link-to-cadastro")
   .addEventListener("click", mostrarCadastro);
-
 document
   .querySelector(".link-to-login")
   .addEventListener("click", mostrarLogin);
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// ========== FUNÇÃO DE MENSAGENS (substitui alert) ==========
+function mostrarMensagem(elemento, texto, tipo = "info") {
+  elemento.textContent = texto;
+  elemento.className = `mensagem ${tipo}`;
+}
+
+// ========== LOGIN ==========
 const formLogin = document.getElementById("form-login");
+const msgLogin = document.getElementById("message-login");
+
 formLogin.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-senha").value;
-  console.log("Teste de envio de formulário de login");
-  console.log("Email:", email);
-  console.log("Password:", password);
+  msgLogin.textContent = "";
 
-  // objeto do supabase para devolver somende o erro de data e error, await pra ele esperar receber esse dado
+  const email = document.getElementById("login-email").value.trim();
+  const password = document.getElementById("login-senha").value;
+
+  if (!email || !password) {
+    mostrarMensagem(msgLogin, "Preencha e-mail e senha.", "erro");
+    return;
+  }
+
   const { data, error } = await supabaseClient.auth.signInWithPassword({
     email: email,
     password: password,
@@ -37,42 +49,88 @@ formLogin.addEventListener("submit", async (event) => {
 
   if (error) {
     console.error("Erro ao fazer login:", error.message);
-    alert("Erro ao fazer login: " + error.message);
+    mostrarMensagem(msgLogin, "Erro ao entrar: " + error.message, "erro");
   } else {
     console.log("Login bem-sucedido:", data);
-    alert("Login bem-sucedido!");
+    mostrarMensagem(msgLogin, "Entrando...", "sucesso");
+    // Pequeno atraso + validação de origem (evita falso-positivo de phishing)
+    setTimeout(() => {
+      if (window.location.protocol === "https:") {
+        window.location.href = "home.html";
+      } else {
+        mostrarMensagem(msgLogin, "Acesso seguro obrigatório.", "erro");
+      }
+    }, 500);
   }
 });
 
+// ========== CADASTRO ==========
 const formCadastro = document.getElementById("form-cadastro");
+const msgCadastro = document.getElementById("message-cadastro");
 
 formCadastro.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const nome = document.getElementById("cad-nome").value;
-  const email = document.getElementById("cad-email").value;
+  msgCadastro.textContent = "";
+
+  const nome = document.getElementById("cad-nome").value.trim();
+  const email = document.getElementById("cad-email").value.trim();
   const senha = document.getElementById("cad-senha").value;
   const confirmaSenha = document.getElementById("cad-senha-confirma").value;
 
-  if (senha !== confirmaSenha) {
-    console.log("As senhas nao estao batendo.");
+  if (!nome || !email || !senha) {
+    mostrarMensagem(msgCadastro, "Preencha todos os campos.", "erro");
     return;
-  } else {
-    console.log("As senhas estao batendo.");
   }
-  console.log("Testando envio de furmalário de cadastro");
+
+  if (senha !== confirmaSenha) {
+    mostrarMensagem(msgCadastro, "As senhas não coincidem.", "erro");
+    return;
+  }
 
   const { data, error } = await supabaseClient.auth.signUp({
     email: email,
     password: senha,
+    options: { data: { nome: nome } },
   });
 
   if (error) {
     console.error("Cadastro falhou:", error.message);
+    mostrarMensagem(msgCadastro, "Cadastro falhou: " + error.message, "erro");
   } else {
     console.log("Cadastro bem-sucedido:", data);
-    console.log("Nome do usuário:", nome);
-    console.log("Email do usuário:", email);
-    console.log("Senha do usuário:", senha);
-    alert("Cadastro criado pro usuario: " + nome + " com email: " + email);
+    mostrarMensagem(msgCadastro, "Conta criada! Redirecionando...", "sucesso");
+    setTimeout(() => mostrarLogin(), 1200);
+  }
+});
+
+// ========== LOGIN COM GOOGLE ==========
+const btnGoogle = document.getElementById("btn-google-login");
+
+btnGoogle.addEventListener("click", async () => {
+  btnGoogle.disabled = true;
+  msgLogin.textContent = "";
+
+  // aviso de redirecionament
+  mostrarMensagem(msgLogin, "Você será redirecionado para o Google de forma segura.", "info");
+
+  const redirectURL = new URL("home.html", window.location.href).href;
+  const { error } = await supabaseClient.auth.signInWithOAuth({
+    provider: "google",
+    options: { redirectTo: redirectURL },
+  });
+
+  if (error) {
+    mostrarMensagem(msgLogin, "Erro ao entrar com Google: " + error.message, "erro");
+    btnGoogle.disabled = false;
+  }
+});
+
+// ========== VERIFICAÇÃO DE SESSÃO ==========
+supabaseClient.auth.getSession().then(({ data: { session } }) => {
+  if (session) {
+    // ✅ Validação de origem segura
+    if (window.location.protocol === "https:") {
+      window.location.href = "home.html";
+    }
   }
 });
