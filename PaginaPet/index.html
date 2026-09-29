@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barto – Adote Com Amor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./PaginaPet.css" />
+  </head>
+  <body>
+    <nav class="menu" aria-label="Principal">
+      <a href="/Auth/Auth.html">ENTRAR</a>
+      <a href="#">ADOTE</a>
+      <a href="/" class="logo">
+        <img src="/img/LogoBranca.png" alt="Adote Com Amor, página inicial" />
+      </a>
+      <a href="#">DOE AQUI</a>
+      <a href="#">SAIBA MAIS</a>
+    </nav>
+
+    <main>
+      <div>
+        <figure class="foto">
+          <img src="/img/ImagemGatoPrincipal.png" alt="gato" />
+        </figure>
+        <h1>Barto</h1>
+        <p class="raca">Gato Gato, Macho</p>
+        <p>
+          Esse lindo e peludo está pronto para encher seu lar de alegria e muito
+          carinho. Ele é muito dócil, inteligente e está ansioso para fazer
+          parte da sua família.
+        </p>
+        <a class="btn" href="#">Quero Adotar</a>
+      </div>
+
+      <div>
+        <div class="tags">
+          <span class="tag azul">Sexo: Macho</span>
+          <span class="tag claro">Idade: 1 ano e 4 meses</span>
+          <span class="tag azul">Cor: Preto e Branco</span>
+          <span class="tag claro">Nascimento: 12/2022</span>
+          <span class="tag claro">Característica Especial: Nenhuma</span>
+          <span class="tag escuro">FIV: Negativo</span>
+          <span class="tag escuro">FeLV: Negativo</span>
+        </div>
+
+        <section>
+          <h2>Sobre Mim</h2>
+          <p>
+            Olá! Eu sou o Barto, um elegante gatinho tuxedo sempre de 'fato e
+            gravata' pronto para conquistar o teu coração. Sou extremamente
+            dócil, carinhoso e adoro a companhia de humanos. Se procuras um
+            parceiro brincalhão, inteligente e cheio de amor para dar, já me
+            encontraste! Estou ansioso por fazer parte da tua família.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="laranja">Como Cuidar de Mim</h2>
+          <p>
+            O gato tuxedo (preto e branco) é muito carinhoso e dócil. Precisa de
+            cuidados de rotina, alimentação de qualidade e muito amor! É
+            fundamental manter as vacinas em dia e realizar os testes de FIV e
+            FeLV periodicamente para garantir a saúde do seu amiguinho.
+          </p>
+        </section>
+
+        <div class="miniaturas">
+          <img src="/img/ImagemGatoPrincipal.png" alt="Barto, foto 1" />
+          <img src="/img/ImagemGatoPrincipal.png" alt="Barto, foto 2" />
+          <img src="/img/ImagemGatoPrincipal.png" alt="Barto, foto 3" />
+        </div>
+      </div>
+    </main>
+    <script src="vlibras.js"></script>
+  </body>
+</html>
+
+<!--
+<img id="foto" alt="" />
+<h1 id="nome"></h1>
+<p class="raca" id="raca"></p>
+<p id="resumo"></p>
+
+<div class="tags" id="tags"></div>
+
+<p id="sobre"></p>
+<p id="cuidados"></p>
+<div class="miniaturas" id="miniaturas"></div>
+-->
+
+<!-- 
+Error 
+
+
+  const id = new URLSearchParams(location.search).get("id");
+  const { data: pet, error } = await supabase
+    .from("pets").select("*").eq("id", id).single();
+
+  if (error) {
+    document.querySelector("main").innerHTML = "<p>Pet não achado.</p>";
+  } else {
+    const $ = (i) => document.getElementById(i);
+
+    $("foto").src = pet.foto_url;
+    $("foto").alt = `Foto de ${pet.nome}`;
+    $("nome").textContent = pet.nome;
+    $("raca").textContent = `${pet.especie}, ${pet.sexo}`;
+    $("resumo").textContent = pet.resumo;
+    $("sobre").textContent = pet.sobre;
+    $("cuidados").textContent = pet.cuidados;
+    document.title = `${pet.nome} – Adote Com Amor`;
+
+    const tags = [
+      ["azul", `Sexo: ${pet.sexo}`],
+      ["claro", `Idade: ${pet.idade}`],
+      ["azul", `Cor: ${pet.cor}`],
+      ["claro", `Nascimento: ${pet.nascimento}`],
+      ["claro", `Característica Especial: ${pet.caracteristica}`],
+      ["escuro", `FIV: ${pet.fiv}`],
+      ["escuro", `FeLV: ${pet.felv}`],
+    ];
+    $("tags").innerHTML = tags
+      .map(([cor, texto]) => `<span class="tag ${cor}">${texto}</span>`)
+      .join("");
+
+    $("miniaturas").innerHTML = (pet.fotos ?? [])
+      .map((url, i) => `<img src="${url}" alt="${pet.nome}, foto ${i + 1}" />`)
+      .join("");
+  }
+-->

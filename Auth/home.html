@@ -68,7 +68,13 @@
       <div class="logo">Logo</div>
 
       <div class="user">
-        <img id="user-foto" class="avatar" alt="Foto do usuário" referrerpolicy="no-referrer" style="display: none" />
+        <img
+          id="user-foto"
+          class="avatar"
+          alt="Foto do usuário"
+          referrerpolicy="no-referrer"
+          style="display: none"
+        />
         <div id="user-letra" class="avatar-letra"></div>
         <span id="user-nome"></span>
         <button id="btn-sair" type="button">Sair</button>
@@ -77,12 +83,16 @@
 
     <main>
       <h1>Você está logado!</h1>
+      <a href="/PaginaPet/index.html">Ver Página do Pet</a>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="config.js"></script>
     <script>
-      const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY,
+      );
 
       async function iniciar() {
         const {
@@ -117,12 +127,15 @@
         }
       }
 
-      document.getElementById("btn-sair").addEventListener("click", async () => {
-        await supabaseClient.auth.signOut();
-        window.location.href = "Auth.html";
-      });
+      document
+        .getElementById("btn-sair")
+        .addEventListener("click", async () => {
+          await supabaseClient.auth.signOut();
+          window.location.href = "Auth.html";
+        });
 
       iniciar();
     </script>
+    <script src="vlibras.js"></script>
   </body>
 </html>

@@ -1,0 +1,189 @@
+ :root {
+        --laranja: #e27c3a;
+        --laranja-claro: #f7d3a3;
+        --laranja-tag: #f0b36c;
+        --azul-tag: #78bfea;
+        --marinho: #0b1a2b;
+        --texto: #1c1c1c;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        width: 100%;
+      }
+      img {
+        max-width: 100%;
+      }
+      body {
+        display: block;
+        font-family: "Lora", serif;
+        color: var(--texto);
+        line-height: 1.55;
+        background: #fff;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+ 
+      /* Menu nav */
+      .menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        width: min(900px, calc(100% - 32px));
+        margin: 20px auto 0;
+        padding: 10px 24px;
+        background: var(--laranja);
+        border-radius: 18px;
+        font:
+          700 14px "Montserrat",
+          sans-serif;
+        color: #fff;
+      }
+      .menu a:focus-visible,
+      .btn:focus-visible {
+        outline: 3px solid var(--marinho);
+        outline-offset: 3px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo img {
+        display: block;
+        height: 48px;
+        width: auto;
+      }
+ 
+      /* Página */
+      main {
+        width: min(1000px, calc(100% - 48px));
+        margin: 64px auto;
+        padding: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        gap: 40px;
+        align-items: start;
+      }
+      .foto {
+        position: relative;
+        margin: 0 0 32px 0;
+      }
+      .foto::before {
+        content: "";
+        position: absolute;
+        inset: 14px -22px -22px 22px;
+        background: var(--laranja-claro);
+        border-radius: 28px;
+        z-index: 0;
+      }
+      .foto img {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 0.9;
+        object-fit: cover;
+        border: 4px solid var(--laranja);
+        border-radius: 28px;
+        background: #d9c3a5;
+      }
+ 
+      h1 {
+        font:
+          700 40px "Montserrat",
+          sans-serif;
+        color: var(--marinho);
+      }
+      .raca {
+        font-size: 20px;
+        color: var(--laranja);
+        margin-bottom: 12px;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 14px 40px;
+        background: var(--laranja);
+        color: #fff;
+        font:
+          700 22px "Montserrat",
+          sans-serif;
+        border-radius: 16px;
+      }
+      .btn:hover {
+        background: #cf6a29;
+      }
+ 
+      /* Etiquetas descricao pet */
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .tag {
+        padding: 6px 14px;
+        border-radius: 12px;
+        font:
+          600 14px "Montserrat",
+          sans-serif;
+      }
+      .azul {
+        background: var(--azul-tag);
+        color: #fff;
+      }
+      .claro {
+        background: var(--laranja-tag);
+        color: #4a2a08;
+      }
+      .escuro {
+        background: var(--marinho);
+        color: #fff;
+      }
+ 
+      h2 {
+        font:
+          700 26px "Montserrat",
+          sans-serif;
+        margin-bottom: 6px;
+      }
+      h2.laranja {
+        color: var(--laranja);
+      }
+      section p {
+        margin-bottom: 26px;
+      }
+      .miniaturas {
+        display: flex;
+        gap: 20px;
+      }
+      .miniaturas img {
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+        aspect-ratio: 1 / 0.8;
+        object-fit: cover;
+        border: 4px solid var(--laranja);
+        border-radius: 18px;
+        background: #d9c3a5;
+      }
+ 
+      @media (max-width: 760px) {
+        main {
+          grid-template-columns: minmax(0, 1fr);
+          margin-top: 40px;
+        }
+        .foto::before {
+          inset: 12px -10px -10px 12px;
+        }
+        h1 {
+          font-size: 32px;
+        }
+      }
