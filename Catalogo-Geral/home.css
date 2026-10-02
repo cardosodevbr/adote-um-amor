@@ -14,7 +14,14 @@ body {
   font-family: "Montserrat", sans-serif;
   background: #fff url("/img/fundo-gatalogo.png");
   min-height: 100vh;
-  padding: 16px 16px 80px;
+  padding: 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 60px;
 }
 
 img {
@@ -168,6 +175,54 @@ img {
   transform: translateY(-4px);
 }
 
+/* Rodapé */
+.rodape {
+  position: relative;
+  container-type: inline-size;
+  width: min(1000px, 100%);
+  margin: 0 auto;
+}
+.rodape > img {
+  width: 100%;
+  height: auto;
+}
+
+.contato {
+  position: absolute;
+  left: 45%;
+  top: 47%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6cqw;
+  font-size: clamp(0.65rem, 1.9cqw, 1rem);
+}
+.contato h2 {
+  color: #1a1a1a;
+  font-size: 1em;
+  font-weight: 600;
+}
+.contato a {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  color: #fff;
+  text-decoration: none;
+}
+.contato a:hover,
+.contato a:focus-visible {
+  text-decoration: underline;
+}
+.contato svg {
+  width: 1.3em;
+  height: 1.3em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 @media (max-width: 800px) {
   .menu {
     padding: 8px 12px;
@@ -198,14 +253,14 @@ img {
     height: 62px;
   }
   .galeria {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
   }
-  .card-pet:nth-child(3n + 2) {
-    background: var(--azul);
+  .card-pet {
+    border-radius: 14px;
+    padding: 6px 6px 8px;
   }
-  .card-pet:nth-child(even) {
-    background: #fdb48a;
+  .card-pet strong {
+    font-size: 0.8rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
