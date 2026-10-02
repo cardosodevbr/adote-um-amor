@@ -364,14 +364,18 @@ img {
 }
 
 /* fundo de passarinhos, troca junto com o tipo */
-.avaliacoes::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--fundo);
-  background-size: 500px;
-  opacity: 0.18;
-  z-index: -1;
+.avaliacao-patas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  flex-wrap: nowrap;
+}
+
+.avaliacao-patas img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .avaliacoes h2 {
@@ -432,17 +436,7 @@ img {
   line-height: 1.4;
 }
 
-/* 5 patinhas laranja, só com CSS */
-.avaliacao::after {
-  content: "";
-  display: block;
-  width: 110px;
-  height: 20px;
-  margin-top: 12px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e3793a'%3E%3Cellipse cx='10' cy='13' rx='5' ry='4'/%3E%3Ccircle cx='4.5' cy='8' r='2'/%3E%3Ccircle cx='8' cy='5' r='2'/%3E%3Ccircle cx='12' cy='5' r='2'/%3E%3Ccircle cx='15.5' cy='8' r='2'/%3E%3C/svg%3E")
-    repeat-x;
-  background-size: 22px 20px;
-}
+
 
 /* ===== Rodapé ===== */
 .rodape {

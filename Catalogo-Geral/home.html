@@ -126,60 +126,13 @@
           <h2>Avaliações</h2>
 
           <div class="avaliacoes-corpo">
-            <!-- Imagem padrão -->
             <img
               id="avaliacaoPet"
               src="/img/calopsita-avaliacao.png"
               alt="Calopsita"
             />
 
-            <div class="avaliacoes-grid">
-              <article class="avaliacao">
-                <header>
-                  <img src="/img/avatar.png" alt="" />
-                  <strong>@amopegarbola</strong>
-                </header>
-
-                <p>
-                  "Após 3 dias no lar temporário, uma amável família demonstrou
-                  interesse na pequena Paola que passou a se chamar Sarabi. A
-                  pequena foi entregue à sua nova família hoje, 01/03."
-                </p>
-              </article>
-
-              <article class="avaliacao">
-                <header>
-                  <img src="/img/avatar.png" alt="" />
-                  <strong>@exemplo</strong>
-                </header>
-
-                <p>
-                  "Adorei o projeto! Foi muito fácil encontrar um animal para
-                  adoção."
-                </p>
-              </article>
-
-              <article class="avaliacao">
-                <header>
-                  <img src="/img/avatar.png" alt="" />
-                  <strong>@exemplo</strong>
-                </header>
-
-                <p>
-                  "O site é muito bonito e as informações dos pets são bem
-                  organizadas."
-                </p>
-              </article>
-
-              <article class="avaliacao">
-                <header>
-                  <img src="/img/avatar.png" alt="" />
-                  <strong>@exemplo</strong>
-                </header>
-
-                <p>"Uma ótima maneira de encontrar um novo companheiro."</p>
-              </article>
-            </div>
+            <div id="avaliacoesGrid" class="avaliacoes-grid"></div>
           </div>
         </section>
       </section>
@@ -254,12 +207,13 @@
     </footer>
 
     <!-- ================= SCRIPTS ================= -->
-
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../Auth/config.js"></script>
     <script src="js/auth-nav.js"></script>
     <script src="../vlibras.js"></script>
+
     <script src="/DadosPet/dadosPets.js"></script>
+    <script src="/DadosPet/avaliacoes.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

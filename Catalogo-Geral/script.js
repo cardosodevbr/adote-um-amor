@@ -6,6 +6,7 @@ const elTitulo = document.getElementById("titulo");
 const elLista = document.getElementById("lista");
 const elVerMais = document.getElementById("verMais");
 const elAvaliacaoPet = document.getElementById("avaliacaoPet");
+const elAvaliacoesGrid = document.getElementById("avaliacoesGrid");
 
 // ==================================================
 // CONFIGURAÇÕES
@@ -37,6 +38,7 @@ const iconeCalendario = `
 // ==================================================
 // CRIA O CARD DO PET
 // ==================================================
+
 function cardPet(p) {
   return `
     <article class="pet-linha">
@@ -64,11 +66,11 @@ function cardPet(p) {
           </span>
 
           <span class="tag tag-genero ${p.sexo === "Macho" ? "macho" : "femea"}">
-  <span class="icone-genero">
-    ${p.sexo === "Macho" ? "♂" : "♀"}
-  </span>
-  Gênero: ${p.sexo}
-</span>
+            <span class="icone-genero">
+              ${p.sexo === "Macho" ? "♂" : "♀"}
+            </span>
+            Gênero: ${p.sexo}
+          </span>
 
         </div>
 
@@ -76,17 +78,67 @@ function cardPet(p) {
           ${p.desc}
         </p>
 
-<a
-  class="btn"
-  href="/PaginaPet/PaginaPet.html?id=${p.id}"
->
-  Conhecer mais
-</a>
+        <a
+          class="btn"
+          href="/PaginaPet/PaginaPet.html?id=${p.id}"
+        >
+          Conhecer mais
+        </a>
 
       </div>
 
     </article>
   `;
+}
+
+// ==================================================
+// DESENHA AS AVALIAÇÕES
+// ==================================================
+function renderAvaliacoes(tipo) {
+  if (!elAvaliacoesGrid) return;
+
+  const lista = avaliacoes[tipo];
+
+  if (!lista) {
+    elAvaliacoesGrid.innerHTML = "";
+    return;
+  }
+
+  const aleatorias = [...lista].sort(() => Math.random() - 0.5).slice(0, 4);
+
+  elAvaliacoesGrid.innerHTML = aleatorias
+    .map(
+      (avaliacao) => `
+        <article class="avaliacao">
+
+          <header>
+            <img
+              src="${avaliacao.foto}"
+              alt="Foto de perfil de ${avaliacao.nome}"
+            >
+
+            <strong>
+              @${avaliacao.nome.toLowerCase()}
+            </strong>
+          </header>
+
+          <p>
+            "${avaliacao.mensagem}"
+          </p>
+
+<div class="avaliacao-patas">
+  ${Array.from(
+    { length: avaliacao.estrelas },
+    () => `
+    <img src="/img/paw.png" alt="">
+  `,
+  ).join("")}
+</div>
+
+        </article>
+      `,
+    )
+    .join("");
 }
 
 // ==================================================
@@ -119,6 +171,12 @@ function render() {
 
     elAvaliacaoPet.alt = `Imagem de ${dados.titulo.toLowerCase()}`;
   }
+
+  // ==================================================
+  // AVALIAÇÕES
+  // ==================================================
+
+  renderAvaliacoes(categoriaAtual);
 
   // ==================================================
   // TÍTULO DA CATEGORIA

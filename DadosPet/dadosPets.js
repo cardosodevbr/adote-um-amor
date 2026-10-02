@@ -169,9 +169,9 @@ const catalogo = {
         olhos: "Castanho",
         caracteristicaEspecial: "Muito obediente e adora brincar de buscar",
         img: "/img/cachorro-avaliacao.png",
-        desc: "Rex é um cão muito carinhoso e procura uma família que possa oferecer amor e cuidados.",
+        desc: "Rex é um cachorro muito carinhoso e procura uma família que possa oferecer amor e cuidados.",
         sobre:
-          "Rex é um cão carinhoso, obediente e cheio de energia. Ele adora brincar de buscar objetos e passar tempo com sua família.",
+          "Rex é um cachorro carinhoso, obediente e cheio de energia. Ele adora brincar de buscar objetos e passar tempo com sua família.",
         cuidados:
           "Ofereça alimentação adequada, água fresca, passeios regulares e momentos de brincadeira. Também é importante manter as vacinas e consultas veterinárias em dia.",
       },
@@ -187,7 +187,7 @@ const catalogo = {
         img: "/img/cachorro-avaliacao.png",
         desc: "Thor é brincalhão, companheiro e está esperando por uma família para chamar de sua.",
         sobre:
-          "Thor é um cão tranquilo, companheiro e brincalhão. Ele gosta de estar perto da família e de receber carinho.",
+          "Thor é um cachorro tranquilo, companheiro e brincalhão. Ele gosta de estar perto da família e de receber carinho.",
         cuidados:
           "Precisa de alimentação adequada, água fresca, passeios e atividades físicas. Também deve ter acompanhamento veterinário e um ambiente seguro.",
       },
