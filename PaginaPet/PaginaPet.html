@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pet – Adote Com Amor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./PaginaPet.css" />
+  </head>
+
+  <body>
+    <nav class="menu" aria-label="Principal">
+      <a href="/Auth/Auth.html">ENTRAR</a>
+      <a href="/home.html#adote">ADOTE</a>
+
+      <a href="/" class="logo">
+        <img src="/img/LogoBranca.png" alt="Adote Com Amor, página inicial" />
+      </a>
+
+      <a href="#">DOE AQUI</a>
+      <a href="#">SAIBA MAIS</a>
+    </nav>
+
+    <main>
+      <div>
+        <figure class="foto">
+          <img id="petImagem" src="" alt="" />
+        </figure>
+
+        <h1 id="petNome"></h1>
+
+        <p id="petRaca" class="raca"></p>
+
+        <p id="petDescricao"></p>
+
+        <a class="btn" href="#"> Quero Adotar </a>
+      </div>
+
+      <div>
+        <div id="petTags" class="tags"></div>
+
+        <section>
+          <h2>Sobre Mim</h2>
+
+          <p id="petSobre"></p>
+        </section>
+
+        <section>
+          <h2 class="laranja">Como Cuidar de Mim</h2>
+
+          <p id="petCuidados"></p>
+        </section>
+
+        <div id="petMiniaturas" class="miniaturas"></div>
+      </div>
+    </main>
+
+    <script src="../DadosPet/dadosPets.js"></script>
+    <script src="PaginaPet.js"></script>
+    <script src="vlibras.js"></script>
+  </body>
+</html>

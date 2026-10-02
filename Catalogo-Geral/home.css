@@ -233,17 +233,63 @@ img {
     sans-serif;
   margin-bottom: 10px;
 }
+.tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
-.pet-linha .tag {
+.tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: #eeb26b;
-  border-radius: 8px;
-  padding: 5px 12px;
-  font-size: 0.8rem;
+  gap: 7px;
+
+  padding: 5px 10px;
+  border-radius: 7px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
   font-weight: 600;
-  margin-bottom: 14px;
+}
+
+.tag-nascimento {
+  background: #f6c27a;
+  color: #222;
+}
+
+.tag-cor {
+  background: #69b6e8;
+  color: white;
+}
+
+.tag-genero {
+  background: #e89bb5;
+  color: white;
+}
+
+.tag svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.icone-info,
+.icone-genero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .tag svg {
@@ -273,6 +319,15 @@ img {
   font-size: 0.8rem;
   border-radius: 999px;
   padding: 7px 36px;
+}
+.tag-genero.macho {
+  background: #69b6e8;
+  color: white;
+}
+
+.tag-genero.femea {
+  background: #e89bb5;
+  color: white;
 }
 
 /* ===== Botão "Ver mais" ===== */
