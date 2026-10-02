@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Adote com Amor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Montserrat:wght@400;500;600;800&family=Sniglet:wght@800&display=swap"
+    />
+
+    <link rel="stylesheet" href="home.css" />
+  </head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+
+    <header>
+      <nav class="menu" aria-label="Principal">
+        <a href="/Auth/Auth.html"> ENTRAR </a>
+
+        <a href="#adote"> ADOTE </a>
+
+        <a href="home.html" class="logo">
+          <img src="/img/LogoBranca.png" alt="Adote Com Amor, página inicial" />
+        </a>
+
+        <a href="#"> DOE AQUI </a>
+
+        <a href="#"> SAIBA MAIS </a>
+      </nav>
+    </header>
+
+    <!-- ================= CONTEÚDO ================= -->
+
+    <main>
+      <!-- Apresentação -->
+
+      <section class="hero" id="sobre">
+        <div class="hero-texto">
+          <span class="selo">
+            <img src="/img/paw.png" alt="" />
+            Adote com amor
+          </span>
+
+          <h1>Antes de mais nada, é importante que saiba!</h1>
+
+          <p>
+            A adoção responsável de Pets vai muito além de um impulso ou uma
+            surpresa. Um animal de estimação não é um presente que pode ser
+            trocado ou descartado, é um companheiro para a vida toda.
+          </p>
+
+          <p>
+            Ao adotar um Pet, um amigo, um parceiro, você está assumindo o
+            compromisso de oferecer carinho, cuidado e um ambiente seguro para
+            um ser que já enfrentou o abandono e agora busca um recomeço.
+          </p>
+
+          <p>
+            Se você é residente das zonas Norte, Sul ou Oeste de São Paulo, da
+            Baixada ou Capital e está pensando em como adotar um Pet, respire
+            fundo e leia com carinho: essa decisão deve ser feita com o coração
+            e com consciência.
+          </p>
+        </div>
+
+        <img
+          class="hero-pets"
+          src="/img/cachoro-gato.png"
+          alt="Cachorro e gato sentados lado a lado"
+        />
+      </section>
+
+      <!-- ================= CATEGORIAS ================= -->
+
+      <section id="adote">
+        <!-- ================= CATEGORIAS ================= -->
+
+        <nav class="seletor" aria-label="Escolha o tipo de animal">
+          <a href="#adote" data-categoria="coelhos" title="Coelhos">
+            <img src="/img/coelho.png" alt="Coelhos" />
+          </a>
+
+          <a href="#adote" data-categoria="calopsitas" title="Calopsitas">
+            <img src="/img/calopsita.png" alt="Calopsitas" />
+          </a>
+
+          <a href="#adote" data-categoria="caes" title="Cães">
+            <img src="/img/cachorro.png" alt="Cães" />
+          </a>
+
+          <a href="#adote" data-categoria="gatos" title="Gatos">
+            <img src="/img/gato.png" alt="Gatos" />
+          </a>
+        </nav>
+
+        <!-- ================= TÍTULO DA CATEGORIA ================= -->
+
+        <h1 id="titulo" class="titulo-catalogo"></h1>
+
+        <!-- ================= PETS ================= -->
+
+        <section
+          id="lista"
+          class="lista-pets"
+          aria-label="Pets para adoção"
+        ></section>
+
+        <!-- ================= VER MAIS ================= -->
+
+        <div class="ver-mais">
+          <button id="verMais" class="btn-grande" type="button">
+            Ver mais
+          </button>
+        </div>
+
+        <!-- ================= AVALIAÇÕES ================= -->
+
+        <section class="avaliacoes">
+          <h2>Avaliações</h2>
+
+          <div class="avaliacoes-corpo">
+            <img
+              id="avaliacaoPet"
+              src="/img/calopsita-avaliacao.png"
+              alt="Calopsita"
+            />
+            <div class="avaliacoes-grid">
+              <article class="avaliacao">
+                <header>
+                  <img src="/img/avatar.png" alt="" />
+                  <strong>@amopegarbola</strong>
+                </header>
+                <p>
+                  "Após 3 dias no lar temporário, uma amável família demonstrou
+                  interesse na pequena Paola que passou a se chamar Sarabi. A
+                  pequena foi entregue à sua nova família hoje, 01/03."
+                </p>
+              </article>
+
+              <article class="avaliacao">
+                <header>
+                  <img src="/img/avatar.png" alt="" />
+                  <strong>@exemplo</strong>
+                </header>
+                <p>
+                  "Adorei o projeto! Foi muito fácil encontrar um animal para
+                  adoção."
+                </p>
+              </article>
+
+              <article class="avaliacao">
+                <header>
+                  <img src="/img/avatar.png" alt="" />
+                  <strong>@exemplo</strong>
+                </header>
+                <p>
+                  "O site é muito bonito e as informações dos pets são bem
+                  organizadas."
+                </p>
+              </article>
+
+              <article class="avaliacao">
+                <header>
+                  <img src="/img/avatar.png" alt="" />
+                  <strong>@exemplo</strong>
+                </header>
+                <p>"Uma ótima maneira de encontrar um novo companheiro."</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="rodape">
+      <img
+        src="/img/FOOTER.png"
+        alt="Adote com Amor. Amor que faz o coração aquecer."
+      />
+
+      <div class="contato">
+        <h2>Fale conosco</h2>
+
+        <!-- Telefone -->
+
+        <a href="tel:+5511900000000">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 16.9v3a2 2 0 0 1-2.2 2
+              19.8 19.8 0 0 1-8.6-3.1
+              19.5 19.5 0 0 1-6-6
+              A19.8 19.8 0 0 1 2.1 4.2
+              2 2 0 0 1 4.1 2h3
+              a2 2 0 0 1 2 1.7
+              c.1 1 .4 1.9.7 2.8
+              a2 2 0 0 1-.5 2.1
+              L8.1 9.9
+              a16 16 0 0 0 6 6
+              l1.3-1.3
+              a2 2 0 0 1 2.1-.4
+              c.9.3 1.8.6 2.8.7
+              a2 2 0 0 1 1.7 2z"
+            />
+          </svg>
+
+          (11) 90000-0000
+        </a>
+
+        <!-- E-mail -->
+
+        <a href="mailto:adote.com.amor.org@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="3" />
+
+            <path d="m2 7 10 6 10-6" />
+          </svg>
+
+          adote.com.amor.org@gmail.com
+        </a>
+
+        <!-- Instagram -->
+
+        <a
+          href="https://instagram.com/autodecomamar"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+
+            <circle cx="12" cy="12" r="4" />
+
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+          </svg>
+
+          @adote.com.amor.org
+        </a>
+      </div>
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../Auth/config.js"></script>
+    <script src="js/auth-nav.js"></script>
+    <script src="../vlibras.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
