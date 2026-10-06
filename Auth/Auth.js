@@ -20,7 +20,7 @@ document
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// ========== FUNÇÃO DE MENSAGENS (substitui alert) ==========
+// ========== FUNÇÃO DE MENSAGENS==========
 function mostrarMensagem(elemento, texto, tipo = "info") {
   elemento.textContent = texto;
   elemento.className = `mensagem ${tipo}`;

@@ -3,149 +3,574 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Política de Privacidade | Adote com Amor</title>
+
+    <title>Política de Privacidade | Audote com Amor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       :root {
-        --fundo: #ffffff;
-        --texto: #222222;
-        --suave: #666666;
-        --linha: #e2e2e2;
-        --destaque: #2f6f5e;
+        --laranja: #e3793a;
+        --laranja-claro: #eb9253;
+        --azul: #75bfef;
+
+        --fundo: #fffaf6;
+        --branco: #ffffff;
+        --texto: #333333;
+        --suave: #707070;
+        --linha: #f0dfd4;
+
+        --sombra: 0 8px 25px rgba(0, 0, 0, 0.08);
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --fundo: #161a19;
-          --texto: #e8ecea;
-          --suave: #a4aeaa;
-          --linha: #2c3230;
-          --destaque: #6fc2a9;
-        }
-      }
+
       * {
         box-sizing: border-box;
-      }
-      body {
         margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
         background: var(--fundo);
         color: var(--texto);
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Montserrat", sans-serif;
         line-height: 1.7;
       }
+
+      header {
+        width: 100%;
+        background: var(--laranja);
+
+        padding: 18px 6%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .logo {
+        width: auto;
+        height: 52px;
+        display: block;
+      }
+
+      .voltar {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        color: #ffffff;
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        padding: 10px 18px;
+
+        border: 2px solid rgba(255, 255, 255, 0.85);
+        border-radius: 25px;
+
+        transition: 0.3s ease;
+      }
+
+      .voltar:hover {
+        background: #ffffff;
+        color: var(--laranja);
+      }
+
       main {
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 40px 20px 60px;
+        width: min(900px, 92%);
+        margin: 45px auto 70px;
       }
+
+      .titulo-area {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+
+      .patinha {
+        display: block;
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+
       h1 {
-        font-size: 2rem;
-        margin: 0 0 4px;
-        line-height: 1.25;
+        color: var(--laranja);
+
+        font-family: "Lora", serif;
+
+        font-size: clamp(2rem, 4vw, 3rem);
+
+        line-height: 1.2;
+
+        margin-bottom: 10px;
       }
-      h2 {
-        font-size: 1.2rem;
-        margin: 36px 0 8px;
-        padding-top: 20px;
-        border-top: 1px solid var(--linha);
-      }
+
       .atualizado {
         color: var(--suave);
-        margin: 0 0 24px;
+        font-size: 14px;
       }
+
+      .conteudo {
+        background: var(--branco);
+
+        border-radius: 25px;
+
+        padding: 45px 50px;
+
+        box-shadow: var(--sombra);
+      }
+
+      .introducao {
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      strong {
+        color: var(--laranja);
+        font-weight: 700;
+      }
+
+      h2 {
+        color: var(--laranja);
+
+        font-family: "Lora", serif;
+
+        font-size: 1.35rem;
+
+        margin: 35px 0 12px;
+
+        padding-top: 25px;
+
+        border-top: 2px solid var(--linha);
+      }
+
+      h2:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      p {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+
       ul {
-        padding-left: 22px;
+        padding-left: 25px;
+        margin-bottom: 15px;
       }
+
       li {
-        margin-bottom: 6px;
+        font-size: 15px;
+        margin-bottom: 12px;
+        padding-left: 5px;
       }
+
+      li::marker {
+        color: var(--azul);
+        font-size: 18px;
+      }
+
       a {
-        color: var(--destaque);
+        color: var(--laranja);
+        font-weight: 600;
       }
-      .voltar {
-        display: inline-block;
-        margin-bottom: 24px;
-        font-family: Arial, sans-serif;
-        font-size: 0.95rem;
+
+      .email {
+        word-break: break-word;
+      }
+
+      .aviso {
+        margin-top: 30px;
+
+        padding: 18px 20px;
+
+        background: #eef8ff;
+
+        border-left: 5px solid var(--azul);
+
+        border-radius: 10px;
+
+        font-size: 14px;
+      }
+
+      .aviso strong {
+        color: #4d91b8;
+      }
+      .seguranca {
+        margin-top: 30px;
+
+        padding: 20px;
+
+        background: #fff4ec;
+
+        border-left: 5px solid var(--laranja-claro);
+
+        border-radius: 10px;
+
+        font-size: 14px;
+      }
+
+      .seguranca strong {
+        color: var(--laranja);
+      }
+
+      footer {
+        background: var(--laranja);
+
+        color: #ffffff;
+
+        text-align: center;
+
+        padding: 25px 20px;
+
+        font-size: 13px;
+      }
+
+      footer strong {
+        color: #ffffff;
+      }
+
+      @media (max-width: 700px) {
+        header {
+          padding: 15px 5%;
+        }
+
+        .logo {
+          height: 42px;
+        }
+
+        .voltar {
+          font-size: 12px;
+          padding: 8px 13px;
+        }
+
+        main {
+          width: 94%;
+          margin-top: 30px;
+        }
+
+        .conteudo {
+          padding: 30px 22px;
+          border-radius: 20px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        p,
+        li {
+          font-size: 14px;
+        }
       }
     </style>
   </head>
+
   <body>
+    <header>
+      <a href="/Catalogo-Geral/home.html">
+        <img
+          class="logo"
+          src="/img/LogoBranca.png"
+          alt="Adote com Amor"
+        />
+      </a>
+
+      <a class="voltar" href="Auth.html">
+        ← Voltar para o login
+      </a>
+    </header>
     <main>
-      <a class="voltar" href="Auth.html">Voltar para o login</a>
 
-      <h1>Política de Privacidade</h1>
-      <p class="atualizado">Última atualização: 24 de setembro de 2026</p>
+      <div class="titulo-area">
 
-      <p>
-        O <strong>Adote com Amor</strong> é um projeto de estudo. Esta página
-        explica, de forma simples, quais dados o site usa quando você cria uma
-        conta ou entra com o Google, e o que fazemos com eles.
-      </p>
+        <span class="patinha">🐾</span>
 
-      <h2>Quais dados coletamos</h2>
-      <ul>
-        <li>
-          <strong>Cadastro com e-mail e senha:</strong> nome de usuário, e-mail
-          e senha. A senha é guardada de forma protegida pelo Supabase e não
-          fica visível para nós.
-        </li>
-        <li>
-          <strong>Login com Google:</strong> nome, e-mail e foto de perfil da
-          sua conta Google. Não temos acesso à sua senha do Google nem a outros
-          dados da sua conta.
-        </li>
-        <li>
-          <strong>Sessão de login:</strong> informações guardadas no seu
-          navegador para manter você conectado até clicar em "Sair".
-        </li>
-      </ul>
+        <h1>Política de Privacidade</h1>
 
-      <h2>Para que usamos esses dados</h2>
-      <ul>
-        <li>Criar e identificar a sua conta.</li>
-        <li>Permitir que você entre e saia do site.</li>
-        <li>Mostrar seu nome e sua foto na barra de navegação.</li>
-      </ul>
-      <p>Não vendemos seus dados e não os usamos para propaganda.</p>
+        <p class="atualizado">
+          Última atualização: 3 de outubro de 2026
+        </p>
 
-      <h2>Serviços de terceiros</h2>
-      <p>O site depende destes serviços para funcionar:</p>
-      <ul>
-        <li>
-          <strong>Supabase:</strong> guarda as contas e cuida da autenticação.
-        </li>
-        <li>
-          <strong>Google:</strong> autentica quem escolhe entrar com a conta
-          Google.
-        </li>
-        <li><strong>Vercel:</strong> hospeda o site.</li>
-      </ul>
-      <p>
-        Cada um deles tem a sua própria política de privacidade, que vale para o
-        uso que fazem dos dados.
-      </p>
+      </div>
 
-      <h2>Por quanto tempo guardamos</h2>
-      <p>
-        Mantemos os dados enquanto a sua conta existir. Se você pedir a exclusão
-        da conta, os dados serão apagados.
-      </p>
 
-      <h2>Seus direitos</h2>
-      <p>
-        Conforme a Lei Geral de Proteção de Dados (LGPD), você pode pedir para
-        ver, corrigir ou apagar os seus dados a qualquer momento.
-      </p>
+      <div class="conteudo">
 
-      <h2>Contato</h2>
-      <p>
-        Para qualquer dúvida ou pedido sobre seus dados, escreva para
-        <a href="mailto:adote.com.amor.org@gmail.com">adote.com.amor.org@gmail.com</a>.
-      </p>
+        <p class="introducao">
+          O <strong>Audote com Amor</strong> é um projeto de estudo criado
+          para aproximar pessoas interessadas em adoção de animais que
+          precisam de um lar.
+        </p>
 
-      <h2>Mudanças nesta política</h2>
-      <p>
-        Se algo mudar, atualizaremos esta página e a data no topo.
-      </p>
+        <p>
+          Esta Política de Privacidade explica quais dados pessoais podem
+          ser coletados pelo site, por que eles são utilizados, como são
+          armazenados e quais são os direitos dos usuários.
+        </p>
+
+        <h2>Quais dados coletamos</h2>
+
+        <p>
+          O site pode coletar dados pessoais necessários para o funcionamento
+          da conta e para o processo de contato relacionado à adoção.
+        </p>
+
+        <ul>
+
+          <li>
+            <strong>Dados da conta:</strong>
+            nome e e-mail utilizados para criar e identificar a conta.
+          </li>
+
+          <li>
+            <strong>Login com Google:</strong>
+            nome, e-mail e foto de perfil disponibilizados pela conta Google.
+            O Audote com Amor não possui acesso à senha da conta Google.
+          </li>
+
+          <li>
+            <strong>Dados do formulário de adoção:</strong>
+            nome, CPF, RG, profissão, e-mail e número de WhatsApp.
+          </li>
+
+          <li>
+            <strong>Dados de sessão:</strong>
+            informações necessárias para manter o usuário conectado
+            durante a utilização do site.
+          </li>
+
+        </ul>
+
+        <p>
+          CPF, RG, e-mail, telefone, nome e profissão são
+          <strong>dados pessoais</strong> e devem ser tratados de acordo
+          com as finalidades informadas nesta política.
+        </p>
+
+        <h2>Para que usamos esses dados</h2>
+
+        <p>
+          Os dados coletados são utilizados para as seguintes finalidades:
+        </p>
+
+        <ul>
+
+          <li>
+            Criar e identificar a conta do usuário.
+          </li>
+
+          <li>
+            Permitir o login e o gerenciamento da sessão.
+          </li>
+
+          <li>
+            Mostrar o nome e a foto do usuário quando necessário
+            dentro do site.
+          </li>
+
+          <li>
+            Receber informações de pessoas interessadas em realizar
+            uma adoção.
+          </li>
+
+          <li>
+            Permitir o contato relacionado ao processo de adoção.
+          </li>
+
+        </ul>
+
+        <p>
+          Os dados não são vendidos e não são utilizados para publicidade
+          direcionada pelo projeto.
+        </p>
+
+        <h2>Dados enviados pelo formulário</h2>
+
+        <p>
+          O formulário de contato e adoção pode solicitar informações como
+          CPF, RG, profissão, e-mail e WhatsApp.
+        </p>
+
+        <p>
+          Essas informações são utilizadas para identificar a pessoa
+          interessada e possibilitar o contato relacionado à adoção.
+        </p>
+
+        <p>
+          Quando o formulário é enviado por uma pessoa que está logada,
+          o registro pode ser associado ao identificador da sua conta.
+          Quando enviado sem login, o formulário pode ser registrado sem
+          essa associação.
+        </p>
+
+        <h2>Serviços de terceiros</h2>
+
+        <p>
+          O site utiliza serviços externos necessários para seu funcionamento:
+        </p>
+
+        <ul>
+
+          <li>
+            <strong>Supabase:</strong>
+            utilizado para autenticação, armazenamento e gerenciamento
+            dos dados do sistema.
+          </li>
+
+          <li>
+            <strong>Google:</strong>
+            utilizado para autenticação de usuários que escolhem
+            entrar com uma conta Google.
+          </li>
+
+          <li>
+            <strong>Vercel:</strong>
+            utilizada para hospedar e disponibilizar o site.
+          </li>
+
+        </ul>
+
+        <p>
+          Esses serviços possuem suas próprias políticas de privacidade
+          e termos de uso.
+        </p>
+
+        <h2>Segurança dos dados</h2>
+
+        <p>
+          O projeto utiliza mecanismos de autenticação e controle de acesso
+          para ajudar a proteger as informações armazenadas.
+        </p>
+
+        <p>
+          O acesso aos dados deve ser limitado às finalidades necessárias
+          para o funcionamento do sistema e do processo de adoção.
+        </p>
+
+        <div class="seguranca">
+
+          <strong>🔐 Proteção dos dados</strong>
+
+          <p>
+            Informações pessoais como CPF, RG, e-mail e WhatsApp devem
+            ser tratadas com cuidado e não devem ser utilizadas para
+            finalidades diferentes das apresentadas nesta política.
+          </p>
+
+        </div>
+
+        <h2>Por quanto tempo guardamos</h2>
+
+        <p>
+          Os dados relacionados à conta são mantidos enquanto a conta
+          do usuário existir, observadas as necessidades do funcionamento
+          do sistema e as obrigações aplicáveis.
+        </p>
+
+        <p>
+          Os dados enviados por formulários podem ser mantidos pelo período
+          necessário para atender à finalidade para a qual foram coletados.
+        </p>
+
+        <h2>Seus direitos</h2>
+
+        <p>
+          De acordo com a Lei Geral de Proteção de Dados (LGPD), o usuário
+          pode solicitar informações sobre o tratamento de seus dados e,
+          quando aplicável, pedir:
+        </p>
+
+        <ul>
+
+          <li>
+            acesso aos seus dados pessoais;
+          </li>
+
+          <li>
+            correção de dados incorretos ou incompletos;
+          </li>
+
+          <li>
+            atualização de informações;
+          </li>
+
+          <li>
+            exclusão de dados, quando aplicável;
+          </li>
+
+          <li>
+            informações sobre o uso de seus dados.
+          </li>
+
+        </ul>
+
+        <div class="aviso">
+
+          <strong>🔒 Privacidade:</strong>
+
+          O Audote com Amor busca utilizar os dados pessoais somente
+          para as finalidades apresentadas nesta Política de Privacidade.
+
+        </div>
+
+        <h2>Contato</h2>
+
+        <p>
+          Para dúvidas, solicitações ou questões relacionadas ao tratamento
+          de dados pessoais, entre em contato pelo e-mail:
+        </p>
+
+        <p>
+          <a
+            class="email"
+            href="mailto:adote.com.amor.org@gmail.com"
+          >
+            adote.com.amor.org@gmail.com
+          </a>
+        </p>
+
+        <h2>Mudanças nesta política</h2>
+
+        <p>
+          Esta Política de Privacidade pode ser atualizada quando houver
+          alterações no funcionamento do site ou na forma como os dados
+          são tratados.
+        </p>
+
+        <p>
+          Quando houver uma alteração, a data de atualização apresentada
+          no início desta página será modificada.
+        </p>
+
+      </div>
+
     </main>
+    <footer>
+
+      <p>
+        <strong>Audote com Amor</strong>
+        — Conectando pessoas e animais que precisam de um lar.
+      </p>
+
+    </footer>
+
   </body>
 </html>
