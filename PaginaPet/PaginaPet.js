@@ -27,7 +27,7 @@ if (!pet) {
   `;
 } else {
   // Título da página
-  document.title = `${pet.nome} – Adote Com Amor`;
+  document.title = `${pet.nome} – Audote Com Amor`;
 
   // Imagem principal
   const imagem = document.getElementById("petImagem");
