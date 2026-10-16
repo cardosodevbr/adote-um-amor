@@ -1,6 +1,15 @@
 const telaLogin = document.getElementById("screen-login");
 const telaCadastro = document.getElementById("screen-cadastro");
 
+function origemSeguraParaAuth() {
+  const { protocol, hostname } = window.location;
+  return (
+    protocol === "https:" ||
+    protocol === "file:" ||
+    ["localhost", "127.0.0.1", "::1"].includes(hostname)
+  );
+}
+
 function mostrarLogin() {
   telaLogin.style.display = "flex";
   telaCadastro.style.display = "none";
@@ -55,8 +64,8 @@ formLogin.addEventListener("submit", async (event) => {
     mostrarMensagem(msgLogin, "Entrando...", "sucesso");
     // Pequeno atraso + validação de origem (evita falso-positivo de phishing)
     setTimeout(() => {
-      if (window.location.protocol === "https:") {
-        window.location.href = "home.html";
+      if (origemSeguraParaAuth()) {
+        window.location.href = "../index.html";
       } else {
         mostrarMensagem(msgLogin, "Acesso seguro obrigatório.", "erro");
       }
@@ -111,26 +120,31 @@ btnGoogle.addEventListener("click", async () => {
   msgLogin.textContent = "";
 
   // aviso de redirecionament
-  mostrarMensagem(msgLogin, "Você será redirecionado para o Google de forma segura.", "info");
+  mostrarMensagem(
+    msgLogin,
+    "Você será redirecionado para o Google de forma segura.",
+    "info",
+  );
 
-  const redirectURL = new URL("home.html", window.location.href).href;
+  const redirectURL = new URL("../index.html", window.location.href).href;
   const { error } = await supabaseClient.auth.signInWithOAuth({
     provider: "google",
     options: { redirectTo: redirectURL },
   });
 
   if (error) {
-    mostrarMensagem(msgLogin, "Erro ao entrar com Google: " + error.message, "erro");
+    mostrarMensagem(
+      msgLogin,
+      "Erro ao entrar com Google: " + error.message,
+      "erro",
+    );
     btnGoogle.disabled = false;
   }
 });
 
 // ========== VERIFICAÇÃO DE SESSÃO ==========
 supabaseClient.auth.getSession().then(({ data: { session } }) => {
-  if (session) {
-    // ✅ Validação de origem segura
-    if (window.location.protocol === "https:") {
-      window.location.href = "home.html";
-    }
+  if (session && origemSeguraParaAuth()) {
+    window.location.href = "../index.html";
   }
 });

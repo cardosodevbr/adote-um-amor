@@ -1,0 +1,315 @@
+/* ==========================================================================
+   COMPONENTES compartilhados: animações, botões, tags, navbar e rodapé
+   ========================================================================== */
+
+/* ---------- Animações flutuantes ---------- */
+@keyframes flutuar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes flutuar-leve {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  border: 0;
+  background: #e57b36;
+  color: #fff;
+  font: 600 1rem "Montserrat", system-ui, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.btn:hover {
+  background: #c9611f;
+  transform: translateY(-2px);
+}
+
+.btn--azul {
+  background: #70bdee;
+}
+
+.btn--azul:hover {
+  background: #4ea6dd;
+}
+
+.btn--escuro {
+  background: #0b1220;
+  font-size: 1.3rem;
+  padding: 0.8rem 2.2rem;
+}
+
+.btn--escuro:hover {
+  background: #000;
+}
+
+.btn--grande {
+  font-size: 1.6rem;
+  padding: 0.8rem 4rem;
+}
+
+.link-seta {
+  font: 500 0.95rem "Montserrat", system-ui, sans-serif;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.link-seta--laranja {
+  color: #e57b36;
+}
+
+.link-seta--azul {
+  color: #70bdee;
+}
+
+/* ---------- Tags ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  font: 500 0.9rem "Montserrat", system-ui, sans-serif;
+  background: #fae6d9;
+  border: 1px solid #f5cfa0;
+}
+
+.tag--azul {
+  background: #dff0fc;
+  border-color: #cce6f8;
+}
+
+.tag--laranja {
+  background: #f5cfa0;
+  border: 0;
+}
+
+.tag--sexo {
+  background: #70bdee;
+  color: #fff;
+  border: 0;
+}
+
+.tag__icone {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* ---------- Navbar (não fixa: rola junto com a página) ---------- */
+.topo {
+  position: relative;
+  z-index: 20;
+  padding-top: 1.25rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 56rem);
+  margin-inline: auto;
+  padding: 0.55rem 3rem;
+  background: #e57b36;
+  border-radius: 1rem;
+  transform-origin: top center;
+  will-change: transform, opacity;
+}
+
+.nav__links {
+  display: contents;
+}
+
+.nav a {
+  color: #fff;
+  font: 600 0.8rem "Montserrat", system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav a[aria-current="page"],
+.nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.nav__logo {
+  width: 9rem;
+}
+
+.nav__logo:hover {
+  text-decoration: none;
+}
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 48rem) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .nav__logo {
+    order: 1;
+    width: 8rem;
+  }
+
+  .nav__toggle {
+    display: block;
+    order: 2;
+  }
+
+  .nav a:not(.nav__logo) {
+    display: none;
+    order: 3;
+    flex-basis: 100%;
+    padding: 0.6rem 0;
+    text-align: center;
+  }
+
+  .nav--aberto a:not(.nav__logo) {
+    display: block;
+  }
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  position: relative;
+  margin-top: 14rem;
+}
+
+.rodape__container {
+  position: relative;
+}
+
+.rodape__filhote {
+  position: absolute;
+  left: 6%;
+  top: -13rem;
+  width: 22rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.rodape__caixa {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 4.5rem 3rem 6rem;
+  background: #e57b36;
+  color: #fff;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.rodape__marca {
+  display: grid;
+  justify-items: start;
+  gap: 1.6rem;
+}
+
+.rodape__logo {
+  width: 17rem;
+}
+
+.rodape__slogan {
+  font: 0.75rem "Montserrat", system-ui, sans-serif;
+}
+
+.rodape__contato {
+  padding-left: 2.5rem;
+  border-left: 2px solid #fff;
+}
+
+.rodape__contato h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.rodape__contato li {
+  margin: 0.5rem 0;
+}
+
+.rodape__contato a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font: 500 1rem "Montserrat", system-ui, sans-serif;
+  text-decoration: none;
+}
+
+.rodape__contato a:hover {
+  text-decoration: underline;
+}
+
+.rodape__contato img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.rodape__pata {
+  position: absolute;
+  right: 8%;
+  bottom: 0;
+  height: 12rem;
+  width: auto;
+}
+
+@media (max-width: 40rem) {
+  .rodape {
+    margin-top: 9rem;
+  }
+
+  .rodape__filhote {
+    top: -10.4rem;
+    width: 14rem;
+  }
+
+  .rodape__caixa {
+    grid-template-columns: 1fr;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+
+  .rodape__logo {
+    width: 13rem;
+  }
+
+  .rodape__contato {
+    padding-left: 1.2rem;
+  }
+
+  .rodape__pata {
+    height: 7rem;
+    right: 4%;
+  }
+}

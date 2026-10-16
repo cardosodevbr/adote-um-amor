@@ -1,0 +1,96 @@
+/* ==========================================================================
+   BASE: reset, tipografia e utilitários
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 1rem/1.7 "Lora", Georgia, serif;
+  color: #1b1b1b;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.6em;
+}
+
+h1 {
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+:focus-visible {
+  outline: 3px solid #70bdee;
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.destaque-laranja {
+  color: #e57b36;
+}
+
+.destaque-azul {
+  color: #70bdee;
+}
+
+.destaque-branco {
+  color: #fff;
+}
+
+/* Imagens opcionais: somem sem deixar ícone quebrado se o arquivo não existir */
+.is-ausente {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

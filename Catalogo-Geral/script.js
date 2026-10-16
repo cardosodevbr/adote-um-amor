@@ -1,25 +1,15 @@
-// ==================================================
-// ELEMENTOS DO HTML
-// ==================================================
-
 const elTitulo = document.getElementById("titulo");
 const elLista = document.getElementById("lista");
 const elVerMais = document.getElementById("verMais");
 const elAvaliacaoPet = document.getElementById("avaliacaoPet");
 const elAvaliacoesGrid = document.getElementById("avaliacoesGrid");
 
-// ==================================================
-// CONFIGURAÇÕES
-// ==================================================
-
+// quantidade ate ver mais
 const POR_PAGINA = 3;
-
-let categoriaAtual = "calopsitas";
+//pagina iniciar
+let categoriaAtual = "coelhos";
 let mostrados = POR_PAGINA;
 
-// ==================================================
-// ÍCONE DO CALENDÁRIO
-// ==================================================
 
 const iconeCalendario = `
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -35,52 +25,68 @@ const iconeCalendario = `
   </svg>
 `;
 
-// ==================================================
-// CRIA O CARD DO PET
-// ==================================================
+//gerador card pet
+// HTML Escaping
+function escapar(texto) {
+  return String(texto ?? "").replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c],
+  );
+}
 
 function cardPet(p) {
+  const sexo = String(p.sexo || "");
+  const classeGenero = sexo.startsWith("Macho")
+    ? "macho"
+    : sexo.startsWith("Fêmea")
+      ? "femea"
+      : "casal";
+  const iconeGenero = { macho: "♂", femea: "♀", casal: "♂♀" }[classeGenero];
+
+  const link = `/PaginaPet/PaginaPet.html?doacao=${p.id}`;
+
   return `
     <article class="pet-linha">
 
       <img
         class="foto"
-        src="${p.img}"
-        alt="${p.nome}"
+        src="${escapar(p.img)}"
+        alt="${escapar(p.nome)}"
       >
 
       <div class="info">
 
-        <h2>${p.nome}</h2>
+        <h2>${escapar(p.nome)}</h2>
 
         <div class="tags">
 
           <span class="tag tag-nascimento">
             ${iconeCalendario}
-            Nascimento: ${p.nascimento}
+            Idade: ${escapar(p.idade)}
           </span>
 
           <span class="tag tag-cor">
             <span class="icone-info">!</span>
-            Cor: ${p.cor}
+            Cor: ${escapar(p.cor)}
           </span>
 
-          <span class="tag tag-genero ${p.sexo === "Macho" ? "macho" : "femea"}">
+          <span class="tag tag-genero ${classeGenero}">
             <span class="icone-genero">
-              ${p.sexo === "Macho" ? "♂" : "♀"}
+              ${iconeGenero}
             </span>
-            Gênero: ${p.sexo}
+            Gênero: ${escapar(p.sexo)}
           </span>
 
         </div>
 
         <p>
-          ${p.desc}
+          ${escapar(p.desc)}
         </p>
 
         <a
           class="btn"
-          href="/PaginaPet/PaginaPet.html?id=${p.id}"
+          href="${link}"
         >
           Conhecer mais
         </a>
@@ -91,9 +97,7 @@ function cardPet(p) {
   `;
 }
 
-// ==================================================
-// DESENHA AS AVALIAÇÕES
-// ==================================================
+//gerador avaliações
 function renderAvaliacoes(tipo) {
   if (!elAvaliacoesGrid) return;
 
@@ -140,11 +144,7 @@ function renderAvaliacoes(tipo) {
     )
     .join("");
 }
-
-// ==================================================
-// DESENHA A CATEGORIA ATUAL
-// ==================================================
-
+//gera a categoria atual com base no catalogo
 function render() {
   const dados = catalogo[categoriaAtual];
 
@@ -231,7 +231,6 @@ function escolher(tipo) {
 
   mostrados = POR_PAGINA;
 
-  // Atualiza a URL
 
   history.replaceState({}, "", `?tipo=${tipo}#adote`);
 
@@ -273,7 +272,73 @@ if (catalogo[tipoUrl]) {
 }
 
 // ==================================================
-// INICIA A PÁGINA
+// DOAÇÕES (SUPABASE)
 // ==================================================
 
+const ESPECIE_PARA_CATEGORIA = {
+  Cachorro: "caes",
+  Coelho: "coelhos",
+  Gato: "gatos",
+  Calopsita: "calopsitas",
+};
+
+async function carregarDoacoes() {
+  try {
+    const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
+      },
+    });
+
+    const { data, error } = await client
+      .from("doacoes")
+      .select("*")
+      .eq("status", "aprovado")
+      .order("criado_em", { ascending: false });
+
+    if (error) {
+      console.error("Erro ao carregar doações:", error);
+      return;
+    }
+
+    // agrupa por categoria mais recente primeiro
+    const porCategoria = {};
+
+    data.forEach((d) => {
+      const categoria = ESPECIE_PARA_CATEGORIA[d.especie];
+      if (!categoria || !catalogo[categoria]) return;
+
+      const resumo =
+        d.historia.length > 220
+          ? d.historia.slice(0, 217).trimEnd() + "..."
+          : d.historia;
+
+      (porCategoria[categoria] ||= []).push({
+        id: d.id,
+        nome: d.nome,
+        sexo: d.sexo,
+        idade: d.idade,
+        cor: d.cor,
+        img: d.fotos[0],
+        desc: resumo,
+      });
+    });
+
+    for (const categoria in porCategoria) {
+      catalogo[categoria].pets = [
+        ...porCategoria[categoria],
+        ...catalogo[categoria].pets,
+      ];
+    }
+
+    render();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+
 render();
+carregarDoacoes();

@@ -2,7 +2,6 @@
   --laranja: #e3793a;
   --laranja-claro: #eb9253;
   --azul: #75bfef;
-  --texto: #fff;
   --fundo: url("/img/fundo-gatalogo.png");
   --altura-fundo: 560px;
 }
@@ -27,7 +26,6 @@ body {
   overflow-x: clip;
 }
 
-/* faixa de fundo, só no topo */
 body::before {
   content: "";
   position: absolute;
@@ -50,37 +48,6 @@ img {
   max-width: 100%;
 }
 
-/* ===== Menu ===== */
-.menu {
-  width: min(650px, 100%);
-  margin: 0 auto;
-  background: var(--laranja);
-  border-radius: 999px;
-  padding: 8px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.menu a {
-  color: var(--texto);
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-decoration: none;
-  padding: 6px 10px;
-}
-
-.menu a:hover,
-.menu a:focus-visible {
-  text-decoration: underline;
-}
-
-.menu .logo img {
-  height: 28px;
-  width: auto;
-}
-
 /* ===== Bloco laranja ===== */
 .hero {
   position: relative;
@@ -94,7 +61,7 @@ img {
 
 .hero-texto {
   width: 50%;
-  color: var(--texto);
+  color: #fff;
 }
 
 .selo {
@@ -129,7 +96,6 @@ img {
   margin-bottom: 18px;
 }
 
-/* cachorro e gato saindo do bloco */
 .hero-pets {
   position: absolute;
   right: 3%;
@@ -207,7 +173,7 @@ img {
   object-fit: cover;
   border-radius: 28px;
   flex: none;
-  box-shadow: -16px 10px 0 #cde6fb; /* sombra azul atrás */
+  box-shadow: -16px 10px 0 #cde6fb;
 }
 
 .pet-linha:nth-child(even) .foto {
@@ -227,12 +193,10 @@ img {
 }
 
 .pet-linha h2 {
-  font:
-    800 1.9rem "Sniglet",
-    "Montserrat",
-    sans-serif;
+  font: 800 1.9rem "Sniglet", "Montserrat", sans-serif;
   margin-bottom: 10px;
 }
+
 .tags {
   display: flex;
   align-items: center;
@@ -244,10 +208,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-
   padding: 5px 10px;
   border-radius: 7px;
-
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -260,36 +222,17 @@ img {
 
 .tag-cor {
   background: #69b6e8;
-  color: white;
+  color: #fff;
 }
 
 .tag-genero {
   background: #e89bb5;
-  color: white;
+  color: #fff;
 }
 
-.tag svg {
-  width: 15px;
-  height: 15px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-}
-
-.icone-info,
-.icone-genero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 16px;
-  height: 16px;
-
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-
-  font-size: 11px;
-  font-weight: 800;
+.tag-genero.casal {
+  background: linear-gradient(90deg, #78bfea, #ee8fb4);
+  color: #fff;
 }
 
 .tag svg {
@@ -300,6 +243,19 @@ img {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.icone-info,
+.icone-genero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  font-size: 11px;
+  font-weight: 800;
 }
 
 .pet-linha p {
@@ -320,19 +276,20 @@ img {
   border-radius: 999px;
   padding: 7px 36px;
 }
+
 .tag-genero.macho {
   background: #69b6e8;
-  color: white;
+  color: #fff;
 }
 
 .tag-genero.femea {
   background: #e89bb5;
-  color: white;
+  color: #fff;
 }
 
 /* ===== Botão "Ver mais" ===== */
 .ver-mais {
-  margin: 20px calc(50% - 50vw) 0; /* faixa na largura toda */
+  margin: 20px calc(50% - 50vw) 0;
   background: #f9e4d8;
   padding: 36px 0;
   text-align: center;
@@ -344,9 +301,7 @@ img {
   border: 0;
   border-radius: 999px;
   padding: 16px 70px;
-  font:
-    600 1.4rem "Montserrat",
-    sans-serif;
+  font: 600 1.4rem "Montserrat", sans-serif;
   cursor: pointer;
 }
 
@@ -363,7 +318,6 @@ img {
   isolation: isolate;
 }
 
-/* fundo de passarinhos, troca junto com o tipo */
 .avaliacao-patas {
   display: flex;
   align-items: center;
@@ -381,9 +335,7 @@ img {
 .avaliacoes h2 {
   text-align: center;
   color: var(--laranja);
-  font:
-    800 2.5rem "Sniglet",
-    sans-serif;
+  font: 800 2.5rem "Sniglet", sans-serif;
   margin-bottom: 40px;
 }
 
@@ -403,11 +355,11 @@ img {
 .avaliacao {
   padding: 18px 22px 20px;
   border-radius: 40px;
-  background: #f9e4d0; /* bege */
+  background: #f9e4d0;
 }
 
 .avaliacao:nth-child(odd) {
-  background: #bfe0f7; /* azul */
+  background: #bfe0f7;
   border: 1px solid var(--azul);
 }
 
@@ -435,8 +387,6 @@ img {
   font-weight: 600;
   line-height: 1.4;
 }
-
-
 
 /* ===== Rodapé ===== */
 .rodape {
@@ -493,15 +443,6 @@ img {
 
 /* ===== Celular ===== */
 @media (max-width: 800px) {
-  .menu {
-    padding: 8px 12px;
-  }
-
-  .menu a {
-    font-size: 0.7rem;
-    padding: 6px 4px;
-  }
-
   .hero {
     margin-top: 60px;
     padding: 28px 22px 0;

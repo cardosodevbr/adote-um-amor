@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" type="image/png" href="assets/img/ui/LogoFav.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Saiba mais | Audote com Amor</title>
+    <meta
+      name="description"
+      content="Entenda como funciona o processo de adoção e dê o primeiro passo."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lora:wght@400;500&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/paginas.css" />
+
+    <script>
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yv8exlboqb");
+    </script>
+      
+        
+</head>
+  <body class="tema-saiba">
+    <div class="fundo-topo">
+      <header class="topo">
+        <div class="container">
+          <nav class="menu" id="menu"></nav>
+        </div>
+      </header>
+
+      <div class="container">
+        <div data-hero-aviso></div>
+      </div>
+    </div>
+
+    <main>
+      <div class="container">
+        <section class="secao" aria-labelledby="processo-titulo">
+          <span class="tag">
+            <img
+              class="tag__icone"
+              src="assets/img/icones/patinha.svg"
+              alt=""
+              width="18"
+              height="18"
+            />
+            Adote um Pet
+          </span>
+
+          <div class="processo__cabecalho">
+            <h2 id="processo-titulo">
+              Como funciona o processo de adoção na
+              <span class="destaque-laranja">Audote com Amor?</span>
+            </h2>
+            <div>
+              <p>
+                O nosso processo de adoção é feito com muito cuidado, tanto com
+                os gatinhos quanto com você, futuro tutor.
+              </p>
+              <p>
+                Queremos que essa conexão seja duradoura, segura e cheia de
+                afeto. Você pode dar o primeiro passo de diferentes formas:
+              </p>
+            </div>
+          </div>
+
+          <ol class="passos">
+            <li class="passo">
+              <div class="passo__numero">1</div>
+              <h3>Preenchendo o formulário de adoção</h3>
+              <p>
+                Após preencher o nosso formulário, entraremos em contato para
+                alinhar todos os detalhes.
+              </p>
+              <a class="link-seta link-seta--azul" href="#contato"
+                >Ir para o formulário →</a
+              >
+            </li>
+            <li class="passo">
+              <div class="passo__numero">2</div>
+              <h3>Conversando com a gente pelo WhatsApp</h3>
+              <p>
+                A nossa equipe está pronta para tirar todas as suas dúvidas e te
+                ajudar no processo.
+              </p>
+              <a
+                class="link-seta link-seta--laranja"
+                href="https://wa.me/5511900000000"
+                rel="noopener"
+                >Chamar no WhatsApp →</a
+              >
+            </li>
+          </ol>
+        </section>
+
+        <section class="por-que-adotar">
+          <div class="tag-adotar">
+            🐾
+            <span>Por que Adotar um pet?</span>
+          </div>
+
+          <div class="carrossel" aria-roledescription="carrossel">
+            <div class="carrossel-faixa">
+              <div class="slide">
+                <div class="texto-caixa texto-esquerda">
+                  <img src="/img/papagaio.png" alt="Papagaio" />
+                  <p>Você salva uma vida e ganha um amigo fiel!</p>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="texto-caixa texto-direita">
+                  <img src="/img/peixe.png" alt="Peixe beta" />
+                  <p>Contribui para reduzir o número de animais abandonados</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="carrossel-dots"></div>
+          </div>
+        </section>
+
+        <section
+          class="secao contato"
+          id="contato"
+          aria-labelledby="contato-titulo"
+        >
+          <div>
+            <span class="tag tag--azul">
+              <img
+                class="tag__icone"
+                src="assets/img/icones/patinha.svg"
+                alt=""
+                width="18"
+                height="18"
+              />
+              Entre em Contato
+            </span>
+            <h2 id="contato-titulo">
+              Preencha o nosso formulário e
+              <span class="destaque-azul">dê o primeiro passo</span> para a
+              adoção!
+            </h2>
+
+            <form class="form" id="form-adocao">
+              <div>
+                <label class="sr-only" for="nome">Nome</label>
+                <input
+                  id="nome"
+                  name="nome"
+                  placeholder="Nome"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div class="form__linha">
+                <div>
+                  <label class="sr-only" for="cpf">CPF</label>
+                  <input
+                    id="cpf"
+                    name="cpf"
+                    placeholder="CPF"
+                    inputmode="numeric"
+                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                    title="000.000.000-00"
+                    required
+                  />
+                </div>
+                <div>
+                  <label class="sr-only" for="rg">RG</label>
+                  <input id="rg" name="rg" placeholder="RG" required />
+                </div>
+              </div>
+              <div>
+                <label class="sr-only" for="profissao">Profissão</label>
+                <input
+                  id="profissao"
+                  name="profissao"
+                  placeholder="Profissão"
+                  autocomplete="organization-title"
+                  required
+                />
+              </div>
+              <div>
+                <label class="sr-only" for="email">E-mail</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="E-mail"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div>
+                <label class="sr-only" for="whatsapp">WhatsApp</label>
+                <input
+                  id="whatsapp"
+                  name="whatsapp"
+                  type="tel"
+                  placeholder="WhatsApp"
+                  autocomplete="tel-national"
+                  inputmode="numeric"
+                  required
+                />
+              </div>
+              <button class="btn btn--azul" type="submit">Enviar</button>
+              <p class="form__msg" role="status"></p>
+            </form>
+          </div>
+
+          <div class="contato__foto">
+            <img
+              src="assets/img/ui/tutora.png"
+              alt="Mulher segurando um gato cinza no colo"
+              width="619"
+              height="863"
+              loading="lazy"
+            />
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="rodape" id="rodape"></footer>
+
+    <script src="js/imagens.js"></script>
+    <script src="js/formulario.js"></script>
+    <script src="/config/Nav.js"></script>
+    <script src="/config/Footer.js"></script>
+    <script src="/config/Hero-Aviso.js" defer></script>
+    <script src="/js/saiba-mais.js"></script>
+  
+    <!-- VLibras: acessibilidade em Libras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+</body>
+</html>

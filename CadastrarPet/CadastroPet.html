@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" type="image/png" href="../assets/img/ui/LogoFav.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Doe aqui | Audote com Amor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Montserrat:wght@400;500;600;800&display=swap"
+    />
+    <link rel="stylesheet" href="doe-aqui.css" />
+
+    <script>
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yv8exlboqb");
+    </script>
+      
+        
+</head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+    <nav class="menu" id="menu"></nav>
+
+    <!-- ================= CONTEÚDO ================= -->
+    <main>
+      <section class="hero-doacao">
+        <div class="hero-doacao-texto">
+          <h1>DOAÇÃO RESPONSÁVEL</h1>
+          <h2>
+            Um novo lar começa com uma escolha <strong>consciente.</strong>
+          </h2>
+
+          <p>
+            Doar um pet é uma grande responsabilidade. Procure uma família que
+            possa oferecer amor, segurança, alimentação, cuidados veterinários e
+            um lar adequado.
+          </p>
+          <p>
+            Antes de realizar a doação, conheça quem irá receber o animal e
+            tenha certeza de que ele será bem cuidado e respeitado.<br />
+            Porque todo pet merece um lar seguro, cheio de carinho e
+            responsabilidade.
+          </p>
+        </div>
+
+        <img
+          class="hero-doacao-gato"
+          src="/img/gato-aviso.png"
+          alt="Gato laranja falando em um megafone"
+        />
+      </section>
+
+      <form id="formDoacao" class="form-doacao" novalidate>
+        <div class="campo area-nome">
+          <label for="nomePet"
+            ><span class="patinha">🐾</span> Nome do pet</label
+          >
+          <input type="text" id="nomePet" name="nomePet" required />
+        </div>
+
+        <fieldset class="campo area-especie">
+          <legend><span class="patinha">🐾</span> Espécie do pet</legend>
+          <div class="lista-especie">
+            <label
+              ><input
+                type="radio"
+                name="especie"
+                value="Cachorro"
+                required
+              /><span>Cachorro</span></label
+            >
+            <label
+              ><input type="radio" name="especie" value="Coelho" /><span
+                >Coelho</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="especie" value="Gato" /><span
+                >Gato</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="especie" value="Calopsita" /><span
+                >Calopsita</span
+              ></label
+            >
+          </div>
+        </fieldset>
+
+        <div class="campo area-idade">
+          <label for="idadePet"
+            ><span class="patinha">🐾</span> Idade do pet</label
+          >
+          <input
+            type="text"
+            id="idadePet"
+            name="idadePet"
+            placeholder="Ex.: 2 anos"
+            required
+          />
+        </div>
+
+        <!-- Sexo -->
+        <div class="campo area-sexo">
+          <label for="sexoPet"><span class="patinha">🐾</span> Sexo</label>
+          <select id="sexoPet" name="sexoPet" required>
+            <option value="" selected disabled></option>
+            <option value="Macho">Macho</option>
+            <option value="Fêmea">Fêmea</option>
+            <option value="Casal (Macho e Fêmea)">Casal (Macho e Fêmea)</option>
+          </select>
+        </div>
+
+        <div class="campo area-cor">
+          <label for="corPet"><span class="patinha">🐾</span> Cor do Pet</label>
+          <input type="text" id="corPet" name="corPet" required />
+        </div>
+
+        <div class="campo area-sobre">
+          <label for="sobreNosPet"
+            ><span class="patinha">🐾</span> Sobre Pet</label
+          >
+          <textarea
+            id="sobreNosPet"
+            name="sobreNosPet"
+            maxlength="1000"
+            placeholder="Máximo de 1000 caracteres"
+          ></textarea>
+          <small class="contador" id="contSobreNos">0 / 1000</small>
+        </div>
+
+        <div class="campo area-fotos">
+          <label for="fotosPet"
+            ><span class="patinha">🐾</span> Foto do pet (4 ou mais
+            imagens)</label
+          >
+
+          <label class="upload" for="fotosPet" id="areaUpload">
+            <img src="/img/gato-envio.png" alt="" class="upload-icone" />
+            <span class="upload-texto">Clique para enviar</span>
+            <span class="upload-aviso" id="avisoFotos"
+              >Mínimo de 4 imagens</span
+            >
+            <div class="previas" id="previas"></div>
+          </label>
+          <input
+            type="file"
+            id="fotosPet"
+            name="fotosPet"
+            accept="image/*"
+            multiple
+            hidden
+          />
+        </div>
+
+        <div class="campo area-historia">
+          <label for="historiaPet"
+            ><span class="patinha">🐾</span> História</label
+          >
+          <textarea
+            id="historiaPet"
+            name="historiaPet"
+            maxlength="1000"
+            placeholder="Máximo de 1000 caracteres"
+            required
+          ></textarea>
+          <small class="contador" id="contHistoria">0 / 1000</small>
+        </div>
+
+        <div class="campo area-cuidados">
+          <label for="cuidadosPet"
+            ><span class="patinha">🐾</span> Cuidados</label
+          >
+          <textarea
+            id="cuidadosPet"
+            name="cuidadosPet"
+            maxlength="1000"
+            placeholder="Máximo de 1000 caracteres"
+            required
+          ></textarea>
+          <small class="contador" id="contCuidados">0 / 1000</small>
+        </div>
+
+        <button type="submit" class="btn-adocao">ENCAMINHAR PARA ADOÇÃO</button>
+        <p id="mensagem" class="mensagem" role="status"></p>
+      </form>
+    </main>
+
+    <!-- ================= RODAPÉ ================= -->
+    <footer class="rodape" id="rodape"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/Auth/config.js"></script>
+    <script type="module" src="doe-aqui.js"></script>
+    <script src="/config/Nav.js"></script>
+    <script src="/config/Footer.js"></script>
+  
+    <!-- VLibras: acessibilidade em Libras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <link rel="icon" type="image/png" href="../assets/img/ui/LogoFav.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -15,26 +16,26 @@
     />
 
     <link rel="stylesheet" href="saiba-mais.css" />
-  </head>
+    <link rel="stylesheet" href="/config/Nav.css" />
+  
+<script>
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;
+    t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];
+    y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","yv8exlboqb");
+</script>
+
+    
+      
+</head>
 
   <body>
     <!-- ================= HEADER ================= -->
 
-    <header>
-      <nav class="menu" aria-label="Principal">
-        <a href="/Auth/Auth.html"> ENTRAR </a>
-
-        <a href="#adote"> ADOTE </a>
-
-        <a href="home.html" class="logo">
-          <img src="/img/LogoBranca.png" alt="Adote Com Amor, página inicial" />
-        </a>
-
-        <a href="#"> DOE AQUI </a>
-
-        <a href="#"> SAIBA MAIS </a>
-      </nav>
-    </header>
+    <header data-menu-site></header>
 
     <!-- ================= CONTEÚDO ================= -->
 
@@ -115,7 +116,7 @@
             alinhar todos os detalhes.
           </p>
 
-          <a href="#"> Conhecer a história → </a>
+          <a href="../saiba-mais.html#contato"> Conhecer a história → </a>
         </div>
 
         <!-- CARD 2 -->
@@ -132,7 +133,7 @@
             ajudar no processo.
           </p>
 
-          <a href="#"> Conhecer a história → </a>
+          <a href="../saiba-mais.html#contato"> Conhecer a história → </a>
         </div>
       </div>
     </section>
@@ -271,5 +272,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/Auth/config.js"></script>
     <script type="module" src="saiba-mais.js"></script>
-  </body>
+    <script src="/config/Nav.js"></script>
+  
+    <!-- VLibras: acessibilidade em Libras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+</body>
 </html>

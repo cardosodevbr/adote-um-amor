@@ -56,59 +56,18 @@ body {
 }
 #screen-cadastro .hero {
   border-bottom: none;
-} /* ==================Menu====================================*/
-.hero header {
-  width: 100%;
 }
-.menu {
-  width: 100%;
-  max-width: 1300px;
-  min-height: 54px;
-  margin: 0 auto;
-  padding: 8px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  background: var(--laranja);
-  border-radius: 999px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-.menu a {
-  color: var(--texto);
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.86rem;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-  padding: 7px 14px;
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
-}
-.menu a:hover,
-.menu a:focus-visible {
-  opacity: 0.85;
-  transform: translateY(-1px);
-}
-.menu .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 20px;
-}
-.menu .logo img {
-  display: block;
-  width: auto;
-  height: 33px;
-}
+
+/* ================ imagem do topo (cachorro e gato) ====================*/
 .hero-pets {
   display: block;
-  width: min(600px, 48vw);
+  width: min(420px, 48vw);
   height: auto;
   margin-top: 20px;
   object-fit: contain;
 }
+
+/* ================ telas ====================*/
 .screen {
   display: none;
   flex: 1;
@@ -160,7 +119,9 @@ h1 {
   max-height: 400px;
   height: auto;
   object-fit: contain;
-} /* =====================Form===========================*/
+}
+
+/* =====================Form===========================*/
 form {
   width: 100%;
   max-width: 650px;
@@ -247,7 +208,9 @@ input:focus-visible {
 .btn-social:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-} /* ========================linha dividir==============================*/
+}
+
+/* ========================linha dividir==============================*/
 .divider {
   width: min(900px, 80%);
   display: flex;
@@ -265,7 +228,9 @@ input:focus-visible {
   flex: 1;
   height: 1px;
   background: #d0d0d0;
-} /* =======================Google btn===========================*/
+}
+
+/* =======================Google btn===========================*/
 .social-label {
   text-align: center;
   margin-bottom: 10px;
@@ -295,7 +260,9 @@ input:focus-visible {
   background: #f3d6ac;
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-} /* ==========================Msm============================*/
+}
+
+/* ==========================Msm============================*/
 .message {
   width: min(600px, calc(100% - 40px));
   min-height: 0;
@@ -324,7 +291,9 @@ input:focus-visible {
     opacity: 1;
     transform: translateY(0);
   }
-} /* ========================Msm Erro==============================*/
+}
+
+/* ========================Msm Erro==============================*/
 .message.error {
   display: flex;
   padding: 11px 17px;
@@ -347,7 +316,9 @@ input:focus-visible {
   font-family: "Montserrat", sans-serif;
   font-size: 0.75rem;
   font-weight: 800;
-} /* ======================Msm Sucesso==============================*/
+}
+
+/* ======================Msm Sucesso==============================*/
 .message.success {
   display: flex;
   padding: 11px 17px;
@@ -370,7 +341,9 @@ input:focus-visible {
   font-family: "Montserrat", sans-serif;
   font-size: 0.72rem;
   font-weight: 800;
-} /* ====================Links================================*/
+}
+
+/* ====================Links================================*/
 .footer-link,
 .terms {
   margin: 15px 20px 0;
@@ -398,7 +371,9 @@ input:focus-visible {
 }
 .link-btn:hover {
   text-decoration: underline;
-} /* =========================CADASTRO===========================*/
+}
+
+/* =========================CADASTRO===========================*/
 .btn-wide {
   width: min(600px, 42%);
   margin: 25px auto 0;
@@ -409,23 +384,12 @@ input:focus-visible {
 }
 #screen-cadastro .auth-body {
   align-items: center;
-} /* ===================== PC ==========================*/
+}
+
+/* ===================== PC ==========================*/
 @media (min-width: 701px) and (max-width: 1199px) {
   .hero {
     padding: 22px 20px 0;
-  }
-  .menu {
-    max-width: 1000px;
-    min-height: 48px;
-    padding: 6px 20px;
-    gap: 8px;
-  }
-  .menu a {
-    font-size: 0.72rem;
-    padding: 5px 8px;
-  }
-  .menu .logo img {
-    height: 27px;
   }
   .hero-pets {
     width: min(500px, 48vw);
@@ -453,25 +417,12 @@ input:focus-visible {
   .btn-wide {
     width: 45%;
   }
-} /* =====================CELULAR =========================== */
+}
+
+/* =====================CELULAR =========================== */
 @media (max-width: 700px) {
   .hero {
     padding: 16px 12px 0;
-  }
-  .menu {
-    width: 100%;
-    padding: 6px 12px;
-    gap: 4px;
-  }
-  .menu a {
-    font-size: 0.8rem;
-    padding: 4px 6px;
-  }
-  .menu .logo {
-    padding: 3px 5px;
-  }
-  .menu .logo img {
-    height: 22px;
   }
   .hero-pets {
     width: min(380px, 88vw);

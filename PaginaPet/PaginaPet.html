@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <link rel="icon" type="image/png" href="../assets/img/ui/LogoFav.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -8,25 +9,32 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="./PaginaPet.css" />
-  </head>
+
+    <script>
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yv8exlboqb");
+    </script>
+      
+        
+</head>
 
   <body>
-    <nav class="menu" aria-label="Principal">
-      <a href="/Auth/Auth.html">ENTRAR</a>
-      <a href="/home.html#adote">ADOTE</a>
-
-      <a href="/" class="logo">
-        <img src="/img/LogoBranca.png" alt="Adote Com Amor, página inicial" />
-      </a>
-
-      <a href="#">DOE AQUI</a>
-      <a href="#">SAIBA MAIS</a>
-    </nav>
+    <header data-menu-site></header>
 
     <main>
       <div>
@@ -40,7 +48,15 @@
 
         <p id="petDescricao"></p>
 
-        <a class="btn" href="#"> Quero Adotar </a>
+        <!-- Visitantes e outras contas: "Quero Adotar" -->
+        <a id="btnAdotar" class="btn" href="../saiba-mais.html#contato" hidden>
+          Quero Adotar
+        </a>
+
+        <!-- Só o dono da doação: "Editar dados" no lugar do "Quero Adotar" -->
+        <button id="btnEditar" class="btn btn--editar" type="button" hidden>
+          ✏️ Editar dados
+        </button>
       </div>
 
       <div>
@@ -52,6 +68,12 @@
           <p id="petSobre"></p>
         </section>
 
+        <section id="secaoHistoria" hidden>
+          <h2>Minha História</h2>
+
+          <p id="petHistoria"></p>
+        </section>
+
         <section>
           <h2 class="laranja">Como Cuidar de Mim</h2>
 
@@ -60,10 +82,102 @@
 
         <div id="petMiniaturas" class="miniaturas"></div>
       </div>
+
+      <div class="pet__voltar">
+        <a id="voltarCatalogo" class="btn btn--voltar" href="/adote.html"
+          >← Voltar ao catálogo</a
+        >
+      </div>
     </main>
 
-    <script src="../DadosPet/dadosPets.js"></script>
+    <!-- Conheça mais pets (mesma espécie do pet aberto) -->
+    <section class="mais-pets" id="maisPets" aria-labelledby="maisPetsTitulo" hidden>
+      <h2 id="maisPetsTitulo">Conheça mais pets!</h2>
+
+      <div class="mais-pets__carrossel">
+        <button
+          type="button"
+          class="mais-pets__seta"
+          id="maisPetsPrev"
+          aria-label="Pets anteriores"
+        >
+          &lt;
+        </button>
+
+        <div class="mais-pets__faixa" id="maisPetsFaixa"></div>
+
+        <button
+          type="button"
+          class="mais-pets__seta"
+          id="maisPetsNext"
+          aria-label="Próximos pets"
+        >
+          &gt;
+        </button>
+      </div>
+    </section>
+
+    <!-- Janela de edição -->
+    <dialog id="dialogoEditar" class="dialogo-editar">
+      <form id="formEditar" class="form-editar">
+        <h2>Editar dados do pet</h2>
+
+        <label for="edNome">Nome</label>
+        <input id="edNome" type="text" required />
+
+        <label for="edEspecie">Espécie</label>
+        <select id="edEspecie" required>
+          <option value="Cachorro">Cachorro</option>
+          <option value="Coelho">Coelho</option>
+          <option value="Gato">Gato</option>
+          <option value="Calopsita">Calopsita</option>
+        </select>
+
+        <label for="edIdade">Idade</label>
+        <input id="edIdade" type="text" required />
+
+        <label for="edSexo">Sexo</label>
+        <select id="edSexo" required>
+          <option value="Macho">Macho</option>
+          <option value="Fêmea">Fêmea</option>
+          <option value="Casal (Macho e Fêmea)">Casal (Macho e Fêmea)</option>
+        </select>
+
+        <label for="edCor">Cor</label>
+        <input id="edCor" type="text" required />
+
+        <label for="edSobreNos">Sobre Nós</label>
+        <textarea id="edSobreNos" maxlength="1000"></textarea>
+
+        <label for="edHistoria">História</label>
+        <textarea id="edHistoria" maxlength="1000" required></textarea>
+
+        <label for="edCuidados">Cuidados</label>
+        <textarea id="edCuidados" maxlength="1000" required></textarea>
+
+        <p id="msgEditar" class="msg-editar" role="status"></p>
+
+        <div class="acoes-editar">
+          <button
+            type="button"
+            id="btnCancelarEdicao"
+            class="btn btn--cancelar"
+          >
+            Cancelar
+          </button>
+          <button type="submit" class="btn">Salvar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <footer class="rodape" id="rodape"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/Auth/config.js"></script>
+    <script src="../js/data/pets.js"></script>
+    <script src="/config/Nav.js"></script>
+    <script src="/config/Footer.js"></script>
     <script src="PaginaPet.js"></script>
-    <script src="vlibras.js"></script>
+    <script src="/vlibras.js"></script>
   </body>
 </html>

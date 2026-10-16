@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" type="image/png" href="assets/img/ui/LogoFav.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adote | Audote com Amor</title>
+    <meta
+      name="description"
+      content="Conheça os pets resgatados que esperam por um lar em São Paulo."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lora:wght@400;500&family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+    <link rel="stylesheet" href="css/paginas.css" />
+
+    <script>
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yv8exlboqb");
+    </script>
+      
+        
+</head>
+  <body class="tema-geral">
+    <div class="fundo-topo">
+      <nav class="menu" id="menu"></nav>
+
+      <div class="container">
+        <div data-hero-aviso></div>
+      </div>
+    </div>
+
+    <main>
+      <div class="container">
+        <nav class="categorias" aria-label="Categorias de pets">
+          <a href="categoria.html?tipo=coelhos"
+            ><img src="assets/img/ui/categoria-coelhos.png" alt="Coelhos"
+          /></a>
+          <a href="categoria.html?tipo=calopsitas"
+            ><img src="assets/img/ui/categoria-calopsitas.png" alt="Calopsitas"
+          /></a>
+          <a href="categoria.html?tipo=caes"
+            ><img src="assets/img/ui/categoria-caes.png" alt="Cães"
+          /></a>
+          <a href="categoria.html?tipo=gatos"
+            ><img src="assets/img/ui/categoria-gatos.png" alt="Gatos"
+          /></a>
+        </nav>
+
+        <h2 class="sr-only">Pets para adoção</h2>
+        <ul class="grade" id="grade-pets"></ul>
+      </div>
+    </main>
+
+    <footer class="rodape" id="rodape"></footer>
+
+    <script src="/config/Hero-Aviso.js"></script>
+    <script src="/config/Nav.js"></script>
+    <script src="/config/Footer.js"></script>
+    <script src="js/imagens.js"></script>
+    <script src="js/catalogo.js"></script>
+  
+    <!-- VLibras: acessibilidade em Libras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+</body>
+</html>

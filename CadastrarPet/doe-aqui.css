@@ -1,0 +1,427 @@
+:root {
+  --laranja: #e3793a;
+  --laranja-claro: #eb9253;
+  --azul: #75bfef;
+  --azul-campo: #d6eafa;
+  --azul-borda: #b5d9f3;
+  --texto: #fff;
+  --altura-fundo: 560px;
+  --fundo: url("/img/fundo-gatalogo.png");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #fff;
+  position: relative;
+  min-height: 100vh;
+  padding: 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--altura-fundo);
+  background: var(--fundo) repeat top left;
+  z-index: -1;
+  pointer-events: none;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 60px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hero-doacao {
+  position: relative;
+  width: min(1100px, 100%);
+  margin: 40px auto 0;
+  background: var(--azul);
+  border-radius: 30px;
+  padding: 34px 44px 44px;
+  min-height: 450px;
+}
+
+.hero-doacao-texto {
+  width: 62%;
+  color: #fff;
+}
+
+.hero-doacao h1 {
+  font-weight: 500;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.hero-doacao h2 {
+  font-weight: 600;
+  font-size: clamp(1rem, 1.9vw, 1.3rem);
+  margin: 6px 0 0;
+  color: #0e1b2e;
+}
+
+.hero-doacao h2 strong {
+  font-weight: 800;
+}
+
+.hero-doacao p {
+  font-family: "Lora", serif;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.55vw, 1.05rem);
+  line-height: 1.4;
+  max-width: 560px;
+}
+
+.hero-doacao h2 + p {
+  margin-top: 70px;
+}
+
+.hero-doacao p + p {
+  margin-top: 1.4em;
+}
+
+.hero-doacao-gato {
+  position: absolute;
+  right: 1%;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  max-width: 36%;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+@media (max-width: 700px) {
+  .hero-doacao {
+    min-height: 0;
+    padding: 28px 22px 0;
+  }
+  .hero-doacao-texto {
+    width: 100%;
+  }
+  .hero-doacao h2 + p {
+    margin-top: 28px;
+  }
+  .hero-doacao-gato {
+    position: static;
+    height: auto;
+    width: 60%;
+    max-width: 260px;
+    margin: 16px auto 0;
+  }
+}
+
+/* ================= FORMULÁRIO ================= */
+
+.form-doacao {
+  width: min(900px, 100%);
+  margin: 44px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 36px;
+  grid-template-areas:
+    "nome     especie"
+    "idade    especie"
+    "sexo     cor"
+    "sobre    fotos"
+    "historia cuidados"
+    "botao    botao";
+}
+
+.area-nome { grid-area: nome; }
+.area-especie { grid-area: especie; }
+.area-idade { grid-area: idade; }
+.area-sexo { grid-area: sexo; }
+.area-cor { grid-area: cor; }
+.area-sobre { grid-area: sobre; }
+.area-fotos { grid-area: fotos; }
+.area-historia { grid-area: historia; }
+.area-cuidados { grid-area: cuidados; }
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: none;
+  padding: 0;
+  min-width: 0;
+}
+
+.campo > label,
+.campo > legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Lora", serif;
+  font-size: 0.78rem;
+  color: #1a1a1a;
+  padding: 0;
+}
+
+.patinha {
+  font-size: 0.9rem;
+  filter: sepia(1) saturate(4) hue-rotate(-15deg);
+}
+
+.campo input[type="text"],
+.campo select,
+.campo textarea {
+  width: 100%;
+  background: var(--azul-campo);
+  border: 1px solid var(--azul-borda);
+  border-radius: 10px;
+  padding: 0 14px;
+  height: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: #101d30;
+  outline: none;
+}
+
+.campo select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #6fbbee 50%),
+    linear-gradient(135deg, #6fbbee 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 17px,
+    calc(100% - 14px) 17px;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: #6fbbee;
+  box-shadow: 0 0 0 2px rgba(111, 187, 238, 0.4);
+}
+
+.campo textarea {
+  height: 150px;
+  padding: 12px 14px;
+  resize: none;
+}
+
+.campo textarea::placeholder {
+  color: #7db6dd;
+  font-size: 0.8rem;
+}
+
+.contador {
+  align-self: flex-end;
+  font-size: 0.7rem;
+  color: #6b7f8f;
+}
+
+
+.area-sobre textarea {
+  flex: 1;
+  height: auto;
+  min-height: 190px;
+}
+
+.lista-especie {
+  flex: 1;
+  background: var(--azul-campo);
+  border: 1px solid var(--azul-borda);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.lista-especie label {
+  cursor: pointer;
+  font-size: 1rem;
+  color: #101d30;
+}
+
+.lista-especie input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lista-especie span {
+  display: block;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.lista-especie span::before {
+  content: "• ";
+}
+
+.lista-especie input:checked + span {
+  background: var(--azul);
+  color: #fff;
+  font-weight: 600;
+}
+
+.lista-especie input:focus-visible + span {
+  outline: 2px solid var(--laranja);
+}
+
+.upload {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 190px;
+  padding: 18px;
+  background: var(--azul-campo);
+  border: 1px solid var(--azul-borda);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.upload:hover,
+.upload.arrastando {
+  background: #c6e2f7;
+}
+
+.upload-icone {
+  width: 70px;
+  height: auto;
+  opacity: 0.7;
+}
+
+.upload-texto {
+  color: #7db6dd;
+  font-size: 0.8rem;
+}
+
+.upload-aviso {
+  color: #9cc7e6;
+  font-size: 0.65rem;
+}
+
+.upload-aviso.erro {
+  color: #c0392b;
+}
+
+.previas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.previas img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #fff;
+}
+
+.btn-adocao {
+  grid-area: botao;
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  background: var(--laranja);
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-adocao:hover {
+  background: #d46a2b;
+}
+
+.btn-adocao:active {
+  transform: scale(0.99);
+}
+
+.btn-adocao:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.mensagem {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+.mensagem.ok { color: #2e8b57; }
+.mensagem.erro { color: #c0392b; }
+
+.campo .invalido {
+  border-color: #c0392b !important;
+}
+
+@media (max-width: 700px) {
+  .form-doacao {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nome"
+      "especie"
+      "idade"
+      "sexo"
+      "cor"
+      "sobre"
+      "fotos"
+      "historia"
+      "cuidados"
+      "botao";
+  }
+}
+
+.previa {
+  position: relative;
+}
+
+.previa-remover {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--laranja);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.previa-remover:hover {
+  background: #d46a2b;
+}
