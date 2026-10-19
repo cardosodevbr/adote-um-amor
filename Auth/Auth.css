@@ -109,7 +109,6 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background: var(--azul);
   border-radius: 0 250px 250px 0;
   overflow: hidden;
 }

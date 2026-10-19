@@ -1,14 +1,16 @@
-/* Renderiza o catálogo a partir do Supabase (tabela "doacoes").
-   Quem decide o que o visitante pode ver é o RLS do banco; o código não filtra por status.
+/* Renderiza o catálogo a partir do Supabase (tabela "doacoes") e também dos
+   pets do arquivo local (window.PETS, em js/data/pets.js).
+   Quem decide o que o visitante pode ver no Supabase é o RLS do banco; o código não filtra por status.
    Usa textContent (sem innerHTML) para evitar XSS. */
 (() => {
   const PASTA_ICONES = "assets/img/icones/";
+  const PASTA_PETS = "assets/img/pets/";
   const PASTA_AVALIACOES = "";
   const PAGINA_PET = "/PaginaPet/PaginaPet.html";
   const CHAVE_RETORNO_CATALOGO = "audote-voltar-catalogo";
   const CHAVE_SCROLL_CATALOGO = "audote-scroll-catalogo";
 
-  /* Só a apresentação de cada categoria. Os pets vêm do Supabase.
+  /* Só a apresentação de cada categoria. Os pets vêm do Supabase e do pets.js.
      "especie" é o valor gravado na coluna doacoes.especie. */
 
   const CATEGORIAS = {
@@ -94,18 +96,54 @@
     return t.length > limite ? t.slice(0, limite - 3).trimEnd() + "..." : t;
   };
 
+  /* ---------- Pets locais (window.PETS) ---------- */
+
+  // "02/2023" -> "2 anos", "08/2026" -> "2 meses"
+  const idadeDeNasc = (nasc) => {
+    const m = /^(\d{2})\/(\d{4})$/.exec(nasc || "");
+    if (!m) return "";
+    const hoje = new Date();
+    const meses = Math.max(
+      0,
+      (hoje.getFullYear() - Number(m[2])) * 12 +
+        (hoje.getMonth() + 1 - Number(m[1])),
+    );
+    if (meses < 12) return meses <= 1 ? "1 mês" : `${meses} meses`;
+    const anos = Math.floor(meses / 12);
+    return anos === 1 ? "1 ano" : `${anos} anos`;
+  };
+
+  // Converte os pets do arquivo antigo para o mesmo formato do Supabase
+  function petsLocais(especie = null) {
+    const grupos = window.PETS || {};
+    return Object.entries(grupos).flatMap(([chave, grupo]) => {
+      const cat = CATEGORIAS[chave];
+      if (!cat || (especie && cat.especie !== especie)) return [];
+      return (grupo.itens || []).map((p) => ({
+        id: p.id,
+        nome: String(p.nome ?? "").trim() || "Pet",
+        especie: cat.especie,
+        idade: idadeDeNasc(p.nasc),
+        sexo: p.sexo || "",
+        historia: resumir(p.txt),
+        foto: p.img ? PASTA_PETS + p.img : "",
+        local: true,
+      }));
+    });
+  }
+
   /* ---------- Supabase ---------- */
   async function pegarCliente() {
     if (typeof window.obterClienteSupabase === "function") {
       return await window.obterClienteSupabase(); // cliente do Nav.js
     }
     throw new Error(
-      "obterClienteSupabase não encontrado. Confira se o Nav.js carrega antes do catalog.js.",
+      "obterClienteSupabase não encontrado. Confira se o Nav.js carrega antes do catalogo.js.",
     );
   }
 
   // Busca as doações (todas, ou só de uma espécie) e converte para o formato do catálogo.
-  async function buscarPets(especie = null) {
+  async function buscarDoBanco(especie = null) {
     const client = await pegarCliente();
 
     let consulta = client
@@ -123,21 +161,37 @@
       data,
     );
 
-    return (data || [])
-      .map((d) => ({
-        id: d.id,
-        nome: String(d.nome ?? "").trim() || "Pet",
-        especie: String(d.especie ?? "").trim(),
-        idade: String(d.idade ?? "").trim(),
-        sexo: String(d.sexo ?? "").trim(),
-        historia: resumir(d.historia),
-        foto: Array.isArray(d.fotos) ? d.fotos.find(Boolean) || "" : "",
-      }))
-      .filter((p) => p.foto); // sem foto não aparece no catálogo
+    return (data || []).map((d) => ({
+      id: d.id,
+      nome: String(d.nome ?? "").trim() || "Pet",
+      especie: String(d.especie ?? "").trim(),
+      idade: String(d.idade ?? "").trim(),
+      sexo: String(d.sexo ?? "").trim(),
+      historia: resumir(d.historia),
+      foto: Array.isArray(d.fotos) ? d.fotos.find(Boolean) || "" : "",
+      local: false,
+    }));
+  }
+
+  // Junta Supabase + pets locais. Se o Supabase falhar, os locais continuam aparecendo.
+  async function buscarPets(especie = null) {
+    let doBanco = [];
+    try {
+      doBanco = await buscarDoBanco(especie);
+    } catch (erro) {
+      console.error("Erro ao carregar do Supabase:", erro);
+    }
+
+    const locais = petsLocais(especie);
+    console.log(`[catálogo] ${locais.length} pet(s) local(is)`);
+
+    return [...doBanco, ...locais].filter((p) => p.foto); // sem foto não aparece no catálogo
   }
 
   const linkDoPet = (pet) =>
-    `${PAGINA_PET}?doacao=${encodeURIComponent(pet.id)}`;
+    pet.local
+      ? `${PAGINA_PET}?pet=${encodeURIComponent(pet.id)}`
+      : `${PAGINA_PET}?doacao=${encodeURIComponent(pet.id)}`;
 
   const tipo = new URLSearchParams(location.search).get("tipo");
   const lista = document.getElementById("lista-pets");
